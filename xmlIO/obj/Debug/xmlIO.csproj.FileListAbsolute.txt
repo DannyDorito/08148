@@ -1,0 +1,48 @@
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\bin\Debug\xmlIO.dll
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\bin\Debug\xmlIO.pdb
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\bin\Debug\logic.dll
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\bin\Debug\logic.pdb
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\obj\Debug\ResolveAssemblyReference.cache
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\obj\Debug\xmlIO.dll
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\xmlIO\obj\Debug\xmlIO.pdb
+E:\dotnet\vsproject\processFlow\xmlIO\obj\Debug\ResolveAssemblyReference.cache
+E:\dotnet\vsproject\processFlow\xmlIO\obj\Debug\xmlIO.dll
+C:\temp\processFlow\xmlIO\bin\Debug\xmlIO.dll
+C:\temp\processFlow\xmlIO\bin\Debug\xmlIO.pdb
+C:\temp\processFlow\xmlIO\bin\Debug\logic.dll
+C:\temp\processFlow\xmlIO\bin\Debug\logic.pdb
+C:\temp\processFlow\xmlIO\obj\Debug\ResolveAssemblyReference.cache
+C:\temp\processFlow\xmlIO\obj\Debug\xmlIO.dll
+C:\temp\processFlow\xmlIO\obj\Debug\xmlIO.pdb
+C:\Users\John\Downloads\08148\xmlIO\bin\Debug\xmlIO.dll
+C:\Users\John\Downloads\08148\xmlIO\bin\Debug\xmlIO.pdb
+C:\Users\John\Downloads\08148\xmlIO\bin\Debug\logic.dll
+C:\Users\John\Downloads\08148\xmlIO\bin\Debug\logic.pdb
+C:\Users\John\Downloads\08148\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
+C:\Users\John\Downloads\08148\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
+C:\Users\John\Downloads\08148\xmlIO\obj\Debug\xmlIO.dll
+C:\Users\John\Downloads\08148\xmlIO\obj\Debug\xmlIO.pdb
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\xmlIO.dll
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\xmlIO.pdb
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\logic.dll
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\logic.pdb
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.dll
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.pdb
+G:\08148-master\xmlIO\bin\Debug\xmlIO.dll
+G:\08148-master\xmlIO\bin\Debug\xmlIO.pdb
+G:\08148-master\xmlIO\bin\Debug\logic.dll
+G:\08148-master\xmlIO\bin\Debug\logic.pdb
+G:\08148-master\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
+G:\08148-master\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
+G:\08148-master\xmlIO\obj\Debug\xmlIO.dll
+G:\08148-master\xmlIO\obj\Debug\xmlIO.pdb
+C:\08148-master\xmlIO\bin\Debug\xmlIO.dll
+C:\08148-master\xmlIO\bin\Debug\xmlIO.pdb
+C:\08148-master\xmlIO\bin\Debug\logic.dll
+C:\08148-master\xmlIO\bin\Debug\logic.pdb
+C:\08148-master\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
+C:\08148-master\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
+C:\08148-master\xmlIO\obj\Debug\xmlIO.dll
+C:\08148-master\xmlIO\obj\Debug\xmlIO.pdb

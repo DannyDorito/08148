@@ -1,0 +1,36 @@
+C:\dotnet\vsproject\processFlow\BusinessLogic\bin\Debug\logic.dll
+C:\dotnet\vsproject\processFlow\BusinessLogic\bin\Debug\logic.pdb
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\logic.dll
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\logic.pdb
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\logic\bin\Debug\logic.dll
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\logic\bin\Debug\logic.pdb
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\logic\obj\Debug\ResolveAssemblyReference.cache
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\logic\obj\Debug\logic.dll
+C:\dotnet\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\processFlow\logic\obj\Debug\logic.pdb
+E:\dotnet\vsproject\processFlow\logic\bin\Debug\logic.dll
+E:\dotnet\vsproject\processFlow\logic\bin\Debug\logic.pdb
+E:\dotnet\vsproject\processFlow\logic\obj\Debug\ResolveAssemblyReference.cache
+E:\dotnet\vsproject\processFlow\logic\obj\Debug\logic.dll
+E:\dotnet\vsproject\processFlow\logic\obj\Debug\logic.pdb
+C:\temp\processFlow\logic\bin\Debug\logic.dll
+C:\temp\processFlow\logic\bin\Debug\logic.pdb
+C:\temp\processFlow\logic\obj\Debug\ResolveAssemblyReference.cache
+C:\temp\processFlow\logic\obj\Debug\logic.dll
+C:\temp\processFlow\logic\obj\Debug\logic.pdb
+C:\Users\John\Downloads\08148\logic\bin\Debug\logic.dll
+C:\Users\John\Downloads\08148\logic\bin\Debug\logic.pdb
+C:\Users\John\Downloads\08148\logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+C:\Users\John\Downloads\08148\logic\obj\Debug\logic.dll
+C:\Users\John\Downloads\08148\logic\obj\Debug\logic.pdb
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\bin\Debug\logic.dll
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\bin\Debug\logic.pdb
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\obj\Debug\logic.dll
+\\data.adir.hull.ac.uk\home5\528\528209\08148-master\logic\obj\Debug\logic.pdb
+G:\08148-master\logic\bin\Debug\logic.dll
+G:\08148-master\logic\bin\Debug\logic.pdb
+G:\08148-master\logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+G:\08148-master\logic\obj\Debug\logic.dll
+G:\08148-master\logic\obj\Debug\logic.pdb

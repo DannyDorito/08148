@@ -1,0 +1,15 @@
+C:\dotnet\vsproject\teachingAdmin\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\dotnet\vsproject\teachingAdmin\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\dotnet\vsproject\teachingAdmin\BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\dotnet\vsproject\teachingAdmin\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\dotnet\vsproject\teachingAdmin\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\dotnet\vsproject\processFlow\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\dotnet\vsproject\processFlow\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\dotnet\vsproject\processFlow\BusinessLogic\obj\Debug\BusinessLogic.pdb

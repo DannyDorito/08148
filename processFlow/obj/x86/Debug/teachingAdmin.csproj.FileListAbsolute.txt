@@ -1,0 +1,16 @@
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\bin\Debug\teachingAdmin.exe
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\bin\Debug\teachingAdmin.pdb
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\bin\Debug\BusinessLogic.dll
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\bin\Debug\BusinessLogic.pdb
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\obj\x86\Debug\teachingAdmin.exe
+C:\dotnet\vsproject\teachingAdmin\teachingAdmin\obj\x86\Debug\teachingAdmin.pdb
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\bin\Debug\teachingAdmin.exe
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\bin\Debug\teachingAdmin.pdb
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\bin\Debug\BusinessLogic.dll
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\bin\Debug\BusinessLogic.pdb
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\obj\x86\Debug\teachingAdmin.exe
+C:\tmp\bulk\Bottaci, Leonardo(csslb)\Submission attachment(s)\teachingAdmin\teachingAdmin\teachingAdmin\obj\x86\Debug\teachingAdmin.pdb
+C:\dotnet\vsproject\processFlow\teachingAdmin\obj\x86\Debug\teachingAdmin.exe
+C:\dotnet\vsproject\processFlow\teachingAdmin\obj\x86\Debug\teachingAdmin.pdb
