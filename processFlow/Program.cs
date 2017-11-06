@@ -7,6 +7,7 @@ namespace processFlow
 {
     public class Program
     {
+
         public static void Main(String[] args)
         {
             try
@@ -21,7 +22,8 @@ namespace processFlow
                         flow = (ProcessFlow)input;
                         flow.Init();
                     }
-                    else if (flow != null && input is Operation)
+                    else if (flow != null
+                             && input is Operation)
                     {
                         Operation op = (Operation)input;
                         Object result = null;

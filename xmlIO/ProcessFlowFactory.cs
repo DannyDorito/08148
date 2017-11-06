@@ -239,6 +239,7 @@ namespace xmlIO
             {
                 return null;
             }
+
         }
 
         public static bool XmlFormat(XmlNode flowXml)
@@ -262,61 +263,6 @@ namespace xmlIO
                             return true;
                         }
                         if (flowChild.SelectNodes("capacity").Count > 1 || flowChild.SelectNodes("capacity").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("amount").Count == 1 && flowChild.SelectNodes("capacity").Count == 1)
-                        {
-                            int amountInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/amount").InnerText); //directory not correct, todo
-                            int capacitytInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/capacity").InnerText); //directory not correct, todo
-                            if (capacitytInt > amountInt)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    if (flowChild.Name == "process")
-                    {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("typIn").Count > 1 || flowChild.SelectNodes("typIn").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("typOut").Count > 1 || flowChild.SelectNodes("typOut").Count <= 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    if (flowChild.Name == "linkin" || flowChild.Name == "linkout")
-                    {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("source").Count > 1 || flowChild.SelectNodes("source").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("target").Count > 1 || flowChild.SelectNodes("target").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("amount").Count > 1 || flowChild.SelectNodes("amount").Count <= 0)
                         {
                             return true;
                         }
@@ -355,5 +301,6 @@ namespace xmlIO
             //    Console.WriteLine("Failed to serialize: " + e.Message);
             //}
         }
+
     }
 }

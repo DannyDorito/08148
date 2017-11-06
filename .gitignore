@@ -10,6 +10,3 @@
 *.ide
 .vs/processFlow/v15/.suo
 .vs/processFlow/v15/.suo
-*.lock
-*.ide-shm
-*.ide-wal
