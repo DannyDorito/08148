@@ -9,8 +9,8 @@ namespace processFlow
     {
         public static void Main(String[] args)
         {
-            try
-            {  // do not remove this try-catch statement, do not add any code outside try-block
+            //try
+            //{  // do not remove this try-catch statement, do not add any code outside try-block
                //List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission also uncomment all try catch statements
                 List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput(args[0]);       // remove this line before submission
                 ProcessFlow flow = null;
@@ -27,7 +27,7 @@ namespace processFlow
                         Object result = null;
                         //try
                         //{
-                            result = op.Do(flow);
+                        result = op.Do(flow);
                         //}
                         //catch (Exception e)
                         //{
@@ -38,17 +38,15 @@ namespace processFlow
                         }
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                // do not modify the code in this catch block except to comment two lines at end of block
-                Console.WriteLine("Unhandled exception: " + e.Message);
-                // comment following two lines before final build and submission
-                Console.WriteLine("Press any key to exit program.");
-                Console.ReadKey();
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    // do not modify the code in this catch block except to comment two lines at end of block
+            //    Console.WriteLine("Unhandled exception: " + e.Message);
+            //    // comment following two lines before final build and submission
+            //    Console.WriteLine("Press any key to exit program.");
+            //    Console.ReadKey();
+            //}
         }
     }
-
 }
-

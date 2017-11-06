@@ -10,7 +10,7 @@
       <store>
         <id>s2</id>
         <typ>t2</typ>
-        <amount>2</amount>
+        <amount>0</amount>
         <capacity>3</capacity>
       </store>
     </stores>

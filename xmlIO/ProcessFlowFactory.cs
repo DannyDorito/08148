@@ -264,7 +264,7 @@ namespace xmlIO
 
         public static ProcessFlow MkProcessFlow(XmlNode flowXml)
         {
-            if (XmlFormat(flowXml)) //if there is no formatting error in the xml input
+            if (XmlFormat(flowXml) == false) //if there is no formatting error in the xml input
             {
                 XmlNodeList storesXml = flowXml.SelectNodes("stores");
                 Stores stores = MkStores(storesXml[0]);
@@ -276,8 +276,7 @@ namespace xmlIO
             }
             else
             {
-                Console.WriteLine("The Xml input document has the incorrect format");
-                return null;
+                throw new Exception("The Xml input document has the incorrect format");
             }
         }
 
@@ -312,67 +311,32 @@ namespace xmlIO
                         }
                         if (flowChild.SelectNodes("amount").Count == 1 && flowChild.SelectNodes("capacity").Count == 1)
                         {
-                            int amountInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/amount").InnerText); //directory not correct, should be try parse too tod
-                            int capacitytInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/capacity").InnerText); //directory not correct, should be try parse too todo
-                            if (capacitytInt > amountInt)
+                            int amount = 0;
+                            int capacity = 0;
+                            foreach (XmlNode storeChild in flowChild)
+                            {
+                                if (storeChild.Name == "amount")
+                                {
+                                    amount = Int32.Parse(storeChild.InnerText); //needs a tryparse, todo
+                                }
+                                if (storeChild.Name == "capacity")
+                                {
+                                    capacity = Int32.Parse(storeChild.InnerText); //needs a tryparse, todo
+                                }
+                            }
+                            if (amount > capacity)
                             {
                                 return true;
                             }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            return false;
                         }
                     }
                     if (flowChild.Name == "process")
                     {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("typIn").Count > 1 || flowChild.SelectNodes("typIn").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("typOut").Count > 1 || flowChild.SelectNodes("typOut").Count <= 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        // todo
                     }
                     if (flowChild.Name == "linkin" || flowChild.Name == "linkout")
                     {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("source").Count > 1 || flowChild.SelectNodes("source").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("target").Count > 1 || flowChild.SelectNodes("target").Count <= 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("amount").Count > 1 || flowChild.SelectNodes("amount").Count <= 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return true;
+                        //todo
                     }
                 }
             }

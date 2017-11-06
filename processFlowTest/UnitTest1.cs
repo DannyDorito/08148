@@ -22,5 +22,11 @@ namespace processFlowTest
                 Assert.AreEqual(required[i], amounts[i]);
             }
         }
+
+        [TestMethod]
+        public void IncorrectInputTest()
+        {
+            Program.Main(new string[] { "flow2.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+        }
     }
 }
