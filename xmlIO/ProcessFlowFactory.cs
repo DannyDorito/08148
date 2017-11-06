@@ -7,8 +7,14 @@ using logic;
 
 namespace xmlIO
 {
+    /// <summary>
+    /// All of the prosessing methods for the inputted xml document
+    /// </summary>
     public class ProcessFlowFactory
     {
+        /// <summary>
+        /// Defined name of the output xml document
+        /// </summary>
         private const String outFileName = "out.xml";
         public static List<IFlowOperation> LoadInput(String pathname)
         {
@@ -30,64 +36,68 @@ namespace xmlIO
             {
                 switch (inputXml.Name)
                 {
-                    case "flow":
-                        {
-                            ProcessFlow processFlow = MkProcessFlow(inputXml);
-                            result.Add(processFlow);
-                            break;
-                        }
+                    case "flow": //the given flow.xml doc only runs through this process, not any other, todo
+                    {
+                        ProcessFlow processFlow = MkProcessFlow(inputXml);
+                        result.Add(processFlow);
+                        break;
+                    }
                     case "execute":
-                        {
-                            //try
-                            //{
-                            result.Add(new OpExecute(Int32.Parse(inputXml.InnerText)));
-                            //}
-                            //catch (Exception e)
-                            //{
-                            //    // do nothing
-                            //}
-                            break;
-                        }
+                    {
+                        //try
+                        //{
+                        result.Add(new OpExecute(Int32.Parse(inputXml.InnerText)));
+                        //}
+                        //catch (Exception e)
+                        //{
+                        //    // do nothing
+                        //}
+                        break;
+                    }
                     case "query":
+                    {
+                        XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
+                        List<String> stores = new List<String>();
+                        foreach (XmlNode storeXml in storesXml)
                         {
-                            XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
-                            List<String> stores = new List<String>();
-                            foreach (XmlNode storeXml in storesXml)
-                            {
-                                stores.Add(storeXml.InnerText);
-                            }
-                            result.Add(new OpQuery(stores));
-                            break;
+                            stores.Add(storeXml.InnerText);
                         }
+                        result.Add(new OpQuery(stores));
+                        break;
+                    }
                     case "load":
+                    {
+                        XmlNodeList storeAmountsXml = inputXml.SelectNodes("storeAmount");
+                        List<StoreIDAmount> storeAmounts = new List<StoreIDAmount>();
+                        foreach (XmlNode storeAmountXml in storeAmountsXml)
                         {
-                            XmlNodeList storeAmountsXml = inputXml.SelectNodes("storeAmount");
-                            List<StoreIDAmount> storeAmounts = new List<StoreIDAmount>();
-                            foreach (XmlNode storeAmountXml in storeAmountsXml)
-                            {
-                                XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
-                                XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
-                                storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, Int32.Parse(amountXml[0].InnerText)));
-                            }
-                            result.Add(new OpLoad(storeAmounts));
-                            break;
+                            XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
+                            XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
+                            storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, Int32.Parse(amountXml[0].InnerText)));
                         }
+                        result.Add(new OpLoad(storeAmounts));
+                        break;
+                    }
                     case "#comment":
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                     default:
-                        {
-                            throw new Exception("Unknown Xml: " + inputXml.Name);
-                        }
+                    {
+                        throw new Exception("Unknown Xml: " + inputXml.Name);
+                    }
                 }
             }
             return result;
         }
 
+        /// <summary>
+        /// Loads the output into an xml document
+        /// </summary>
+        /// <param name="pathname">the name of the output path</param>
+        /// <returns></returns>
         public static List<int> LoadOutput(String pathname)
         {
-
             XmlDocument flowoutXml = new XmlDocument();
             //try
             //{
@@ -107,23 +117,28 @@ namespace xmlIO
                 switch (outputXml.Name)
                 {
                     case "amounts":
+                    {
+                        XmlNodeList amountsXml = outputXml.SelectNodes("int");
+                        foreach (XmlNode storeXml in amountsXml)
                         {
-                            XmlNodeList amountsXml = outputXml.SelectNodes("int");
-                            foreach (XmlNode storeXml in amountsXml)
-                            {
-                                result.Add(Int32.Parse(storeXml.InnerText));
-                            }
-                            break;
+                            result.Add(Int32.Parse(storeXml.InnerText));
                         }
+                        break;
+                    }
                     default:
-                        {
-                            throw new Exception("Unknown Xml: " + outputXml.Name);
-                        }
+                    {
+                        throw new Exception("Unknown Xml: " + outputXml.Name);
+                    }
                 }
             }
             return result;
         }
 
+        /// <summary>
+        /// Processes the store portion of the inputted xml doc
+        /// </summary>
+        /// <param name="storeXml">The xml node storage for store</param>
+        /// <returns>A list of store</returns>
         public static Store MkStore(XmlNode storeXml)
         {
             XmlNodeList idXml = storeXml.SelectNodes("id");
@@ -132,6 +147,7 @@ namespace xmlIO
             String typ = typXml[0].InnerText;
             XmlNodeList amountXml = storeXml.SelectNodes("amount");
             int amount = Int32.Parse(amountXml[0].InnerText);
+
             // optional fields
             XmlNodeList capacityXml = storeXml.SelectNodes("capacity");
             String capacityData = null;
@@ -146,6 +162,11 @@ namespace xmlIO
             return new Store(id, typ, amount);
         }
 
+        /// <summary>
+        /// Processes the stores portion of the inputted xml doc
+        /// </summary>
+        /// <param name="storesXml">The xml node storage for stores</param>
+        /// <returns>A list of stores</returns>
         public static Stores MkStores(XmlNode storesXml)
         {
             List<Store> stores = new List<Store>();
@@ -157,18 +178,26 @@ namespace xmlIO
             return new Stores(stores);
         }
 
+        /// <summary>
+        /// Processes the process portion of the inputted xml doc
+        /// </summary>
+        /// <param name="processXml">The xml node storage for process</param>
+        /// <returns>A list of process</returns>
         public static Process MkProcess(XmlNode processXml)
         {
             XmlNodeList idXml = processXml.SelectNodes("id");
             String id = idXml[0].InnerText;
             List<String> typsIn = new List<String>();
             XmlNodeList typsInXml = processXml.SelectNodes("typsIn");
+
             foreach (XmlNode typInXml in typsInXml)
             {
                 typsIn.Add(typInXml.FirstChild.InnerText);
             }
+
             List<String> typsOut = new List<String>();
             XmlNodeList typsOutXml = processXml.SelectNodes("typsOut");
+
             foreach (XmlNode typOutXml in typsOutXml)
             {
                 typsOut.Add(typOutXml.FirstChild.InnerText);
@@ -176,10 +205,16 @@ namespace xmlIO
             return new Process(id, typsIn, typsOut);
         }
 
+        /// <summary>
+        /// Processes the processes portion of the inputted xml doc
+        /// </summary>
+        /// <param name="processesXml">The xml node storage for processes</param>
+        /// <returns>A list of store</returns>
         public static Processes MkProcesses(XmlNode processesXml)
         {
             List<Process> processes = new List<Process>();
             XmlNodeList procsXml = processesXml.SelectNodes("process");
+
             foreach (XmlNode procXml in procsXml)
             {
                 processes.Add(MkProcess(procXml));
@@ -187,16 +222,20 @@ namespace xmlIO
             return new Processes(processes);
         }
 
+        //to comment, todo
         public static Links MkLinks(XmlNode linksXml, Stores stores, Processes processes)
         {
             List<Link> links = new List<Link>();
             XmlNodeList lnksXml = linksXml.SelectNodes("linkin");
+
             foreach (XmlNode lnkXml in lnksXml)
             {
                 LinkIn l = MkLinkIn(lnkXml);
                 links.Add(l);
             }
+
             lnksXml = linksXml.SelectNodes("linkout");
+
             foreach (XmlNode lnkXml in lnksXml)
             {
                 LinkOut l = MkLinkOut(lnkXml);
@@ -225,7 +264,7 @@ namespace xmlIO
 
         public static ProcessFlow MkProcessFlow(XmlNode flowXml)
         {
-            if (XmlFormat(flowXml))
+            if (XmlFormat(flowXml)) //if there is no formatting error in the xml input
             {
                 XmlNodeList storesXml = flowXml.SelectNodes("stores");
                 Stores stores = MkStores(storesXml[0]);
@@ -237,10 +276,16 @@ namespace xmlIO
             }
             else
             {
+                Console.WriteLine("The Xml input document has the incorrect format");
                 return null;
             }
         }
 
+        /// <summary>
+        /// Method that checks if the input Xml conforms
+        /// </summary>
+        /// <param name="flowXml"></param>
+        /// <returns>boolean as a result of the Xml doc's format, true = there is errors</returns>
         public static bool XmlFormat(XmlNode flowXml)
         {
             foreach (XmlNode flowItem in flowXml.ChildNodes)
@@ -249,26 +294,26 @@ namespace xmlIO
                 {
                     if (flowChild.Name == "store")
                     {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count <= 0)
+                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count == 0)
                         {
                             return true;
                         }
-                        if (flowChild.SelectNodes("typ").Count > 1 || flowChild.SelectNodes("typ").Count <= 0)
+                        if (flowChild.SelectNodes("typ").Count > 1 || flowChild.SelectNodes("typ").Count == 0)
                         {
                             return true;
                         }
-                        if (flowChild.SelectNodes("amount").Count > 1 || flowChild.SelectNodes("amount").Count <= 0)
+                        if (flowChild.SelectNodes("amount").Count > 1 || flowChild.SelectNodes("amount").Count == 0)
                         {
                             return true;
                         }
-                        if (flowChild.SelectNodes("capacity").Count > 1 || flowChild.SelectNodes("capacity").Count <= 0)
+                        if (flowChild.SelectNodes("capacity").Count > 1) //do no need check to see if <= 0
                         {
                             return true;
                         }
                         if (flowChild.SelectNodes("amount").Count == 1 && flowChild.SelectNodes("capacity").Count == 1)
                         {
-                            int amountInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/amount").InnerText); //directory not correct, todo
-                            int capacitytInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/capacity").InnerText); //directory not correct, todo
+                            int amountInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/amount").InnerText); //directory not correct, should be try parse too tod
+                            int capacitytInt = Int32.Parse(flowChild.SelectSingleNode("input/flow/stores/store/capacity").InnerText); //directory not correct, should be try parse too todo
                             if (capacitytInt > amountInt)
                             {
                                 return true;
@@ -330,16 +375,21 @@ namespace xmlIO
                         return true;
                     }
                 }
-                return false;
             }
             return false;
         }
 
+        //to comment, todo
         public static void Output(Object result)
         {
             SerializeToXMLFile(result, outFileName);
         }
 
+        /// <summary>
+        /// Method to serialize the output Xml file
+        /// </summary>
+        /// <param name="obj">todo</param>
+        /// <param name="pathname">pathname of the Xml file</param>
         private static void SerializeToXMLFile(Object obj, String pathname)
         {
             //try

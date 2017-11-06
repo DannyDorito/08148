@@ -1,10 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using logic;
+﻿using System.Collections.Generic;
 
-namespace logic {
-  public class ProcessFlow : IFlowOperation {
+namespace logic
+{
+    public class ProcessFlow : IFlowOperation {
 
     public Stores stores;
 

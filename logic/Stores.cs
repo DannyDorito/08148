@@ -1,11 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Collections;
-using logic;
 
-namespace logic {
-  public class Stores {
+namespace logic
+{
+    public class Stores {
 
     public List<Store> stores;
 

@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		processFlow\bin\Debug\flow.xml = processFlow\bin\Debug\flow.xml
 		processFlow\bin\Debug\out.xml = processFlow\bin\Debug\out.xml
 		README.txt = README.txt
-		processFlow\bin\Debug\testflow.xml = processFlow\bin\Debug\testflow.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "logic\Logic.csproj", "{2B190705-6BB4-4EDF-ADB9-9AE5B2A8C4D5}"

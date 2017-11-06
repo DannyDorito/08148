@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
 
 namespace logic {
   public class LinkOut : Link {

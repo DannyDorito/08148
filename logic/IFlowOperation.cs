@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace logic {
+﻿namespace logic {
   public interface IFlowOperation {
   }
 }

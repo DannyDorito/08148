@@ -11,7 +11,7 @@ namespace processFlow
         {
             try
             {  // do not remove this try-catch statement, do not add any code outside try-block
-               //List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission
+               //List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission also uncomment all try catch statements
                 List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput(args[0]);       // remove this line before submission
                 ProcessFlow flow = null;
                 foreach (IFlowOperation input in inputs)
