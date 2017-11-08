@@ -1,18 +1,20 @@
 ﻿using System;
 
-namespace logic {
+namespace logic
+{
+    public abstract class Node
+    {
+        public readonly String id;
 
-  public abstract class Node {
+        protected Node(String id)
+        {
+            this.id = id;
+        }
 
-    public readonly String id;
+        public override String ToString()
+        {
+            return id;
+        }
 
-    protected Node(String id) {
-      this.id = id;
     }
-
-    public override String ToString() {
-      return id;
-    }
-
-  }
 }

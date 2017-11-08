@@ -1,36 +1,36 @@
 ﻿using System;
 
-namespace logic {
+namespace logic
+{
+    public class Store : Node
+    {
+        public readonly String typ;
+        public int amount;
+        public readonly int capacity = -1;
 
-  public class Store : Node {
+        public Store(String id, String typ, int amount) : base(id)
+        {
+            this.typ = typ;
+            this.amount = amount;
+            capacity = -1;
+        }
 
-    public readonly String typ;
+        public Store(String id, String typ, int amount, int capacity) : base(id)
+        {
+            this.typ = typ;
+            this.amount = amount;
+            this.capacity = capacity;
+        }
 
-    public int amount;
+        //this may be useful in limiting capacity, todo
+        public bool Limited()
+        {
+            return capacity != -1;
+        }
 
-    public readonly int capacity = -1;
-
-    public Store(String id, String typ, int amount)
-      : base(id) {
-      this.typ = typ;
-      this.amount = amount;
-      this.capacity = -1;
+        public override String ToString()
+        {
+            return id + " " + amount;
+        }
     }
-
-    public Store(String id, String typ, int amount, int capacity)
-      : base(id) {
-      this.typ = typ;
-      this.amount = amount;
-      this.capacity = capacity;
-    }
-
-    public bool Limited() {
-      return capacity != -1;
-    }
-
-    public override String ToString() {
-      return id + " " + amount;
-    }
-  }
-
 }

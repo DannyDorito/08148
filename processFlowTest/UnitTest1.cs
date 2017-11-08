@@ -24,9 +24,33 @@ namespace processFlowTest
         }
 
         [TestMethod]
-        public void IncorrectInputTest()
+        public void IncorrectFlowInputTest()
         {
             Program.Main(new string[] { "flow2.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+        }
+
+        [TestMethod]
+        public void IncorectLoadInputTest()
+        {
+            //make file
+        }
+
+        [TestMethod]
+        public void IncorrectExecuteInputTest()
+        {
+            //make file
+        }
+
+        [TestMethod]
+        public void IncorrectQueryInputTest()
+        {
+            //make file
+        }
+
+        [TestMethod]
+        public void IncorrectStartArgumentsTest()
+        {
+            //make file
         }
     }
 }

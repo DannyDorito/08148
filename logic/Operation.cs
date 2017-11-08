@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace logic {
+namespace logic
+{
+    public abstract class Operation : IFlowOperation
+    {
+        public abstract Object Do(ProcessFlow flow);
 
-  public abstract class Operation : IFlowOperation {
-
-    public abstract Object Do(ProcessFlow flow);
-
-    public abstract Object Output(Object result);
-
-  }
+        public abstract Object Output(Object result);
+    }
 }
