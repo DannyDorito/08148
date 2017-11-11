@@ -55,7 +55,7 @@ namespace xmlIO
                             //try //put this back on submission
                             //{
                             //add the execution to the results
-                            result.Add(new OpExecute(Int32.Parse(inputXml.InnerText)));
+                            result.Add(new OpExecute(ParseText(inputXml.InnerText)));
                             //}
                             //catch (Exception e) //put this back on submission
                             //{
@@ -87,7 +87,7 @@ namespace xmlIO
                             {
                                 XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
                                 XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
-                                storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, Int32.Parse(amountXml[0].InnerText)));
+                                storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
                             }
                             //add the store to the results
                             result.Add(new OpLoad(storeAmounts));
@@ -142,7 +142,7 @@ namespace xmlIO
                             foreach (XmlNode storeXml in amountsXml)
                             {
                                 //add the store to the results
-                                result.Add(Int32.Parse(storeXml.InnerText));
+                                result.Add(ParseText(storeXml.InnerText));
                             }
                             break;
                         }
@@ -157,6 +157,17 @@ namespace xmlIO
         }
 
         /// <summary>
+        /// Tryparse Method
+        /// </summary>
+        /// <param name="input">input string to parse into an int</param>
+        /// <returns>int if the text parsed or 0</returns>
+        public static int ParseText(string input)
+        {
+            int.TryParse(input, out int output);
+            return output;
+        }
+
+        /// <summary>
         /// Processes the store portion of the inputted xml doc
         /// </summary>
         /// <param name="storeXml">The xml node storage for store</param>
@@ -168,7 +179,8 @@ namespace xmlIO
             XmlNodeList typXml = storeXml.SelectNodes("typ");
             String typ = typXml[0].InnerText;
             XmlNodeList amountXml = storeXml.SelectNodes("amount");
-            int amount = Int32.Parse(amountXml[0].InnerText);
+
+            int amount = ParseText(amountXml[0].InnerText);
 
             //optional
             XmlNodeList capacityXml = storeXml.SelectNodes("capacity");
@@ -177,7 +189,7 @@ namespace xmlIO
             {
                 capacityData = capacityXml[0].InnerText;
 
-                return new Store(id, typ, amount, Int32.Parse(capacityData));
+                return new Store(id, typ, amount, ParseText(capacityData));
             }
             //else
             return new Store(id, typ, amount);
@@ -289,7 +301,7 @@ namespace xmlIO
             String id = node.SelectNodes("id")[0].InnerText;
             String sourceId = node.SelectNodes("source")[0].InnerText;
             String targetId = node.SelectNodes("target")[0].InnerText;
-            int volume = Int32.Parse(node.SelectNodes("amount")[0].InnerText);
+            int volume = ParseText(node.SelectNodes("amount")[0].InnerText);
 
             return new LinkIn(id, sourceId, targetId, volume);
         }
@@ -304,7 +316,7 @@ namespace xmlIO
             String id = node.SelectNodes("id")[0].InnerText;
             String sourceId = node.SelectNodes("source")[0].InnerText;
             String targetId = node.SelectNodes("target")[0].InnerText;
-            int volume = Int32.Parse(node.SelectNodes("amount")[0].InnerText);
+            int volume = ParseText(node.SelectNodes("amount")[0].InnerText);
 
             return new LinkOut(id, sourceId, targetId, volume);
         }
@@ -324,6 +336,19 @@ namespace xmlIO
             Links links = MkLinks(linksXml[0], stores, processes);
 
             return new ProcessFlow(stores, processes, links);
+        }
+
+        /// <summary>
+        /// Method to calculate the specific process' process cost
+        /// </summary>
+        /// <param name="processes">todo</param>
+        /// <param name="processId">todo</param>
+        /// <returns>todo</returns>
+        public static int ProcessCost(Processes processes, string processId)
+        {
+            int processCost = 0;
+            //processCost = process processId (input resource cost + output resource cost), todo
+            return processCost;
         }
 
         /// <summary>
