@@ -32,24 +32,13 @@ namespace logic
                 {
                     enabled.Add(p);
                 }
+                else
+                {
+                    enabled.Remove(p);
+                }
             }
         }
 
-        public void RemoveResouce()
-        {
-            foreach (Process p in processes)
-            {
-                //remove resource
-            }
-        }
-
-        public void AddResource()
-        {
-            foreach (Process p in processes)
-            {
-                //add resources
-            }
-        }
         public void Execute(int k)
         {
             SetEnabled();

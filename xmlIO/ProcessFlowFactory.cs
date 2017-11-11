@@ -339,19 +339,6 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Method to calculate the specific process' process cost
-        /// </summary>
-        /// <param name="processes">todo</param>
-        /// <param name="processId">todo</param>
-        /// <returns>todo</returns>
-        public static int ProcessCost(Processes processes, string processId)
-        {
-            int processCost = 0;
-            //processCost = process processId (input resource cost + output resource cost), todo
-            return processCost;
-        }
-
-        /// <summary>
         /// Method to output the results to an xml doc through serialization
         /// </summary>
         /// <param name="result"></param> //todo

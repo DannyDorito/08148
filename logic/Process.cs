@@ -48,13 +48,45 @@ namespace logic
             return true;
         }
 
-        //usefull too, todo
+        /// <summary>
+        /// Finds the total resource cost of a given process (input resources + output resources)
+        /// </summary>
+        /// <returns>the total resouce cost of a given process</returns>
+        public int ProcessCost()
+        {
+            int linkInDifference = 0;
+            int linksOutDifference = 0;
+            foreach (LinkIn link in linksIn)
+            {
+                linkInDifference = FindDifference(link.source.amount, link.amount);
+            }
+            foreach (LinkOut link in linksOut)
+            {
+                linksOutDifference = FindDifference(link.target.amount, link.amount);
+            }
+            return linkInDifference + linksOutDifference;
+        }
+
+        /// <summary>
+        /// Finds the difference between two given ints
+        /// </summary>
+        /// <param name="num1">input one</param>
+        /// <param name="num2">input 2</param>
+        /// <returns></returns>
+        public int FindDifference(int num1, int num2)
+        {
+            return Math.Abs(num1 - num2);
+        }
+
         public void Execute()
         {
+            ProcessCost();
+            //removes resources
             foreach (LinkIn link in linksIn)
             {
                 link.source.amount -= link.amount;
             }
+            //adds resources
             foreach (LinkOut link in linksOut)
             {
                 link.target.amount += link.amount;
