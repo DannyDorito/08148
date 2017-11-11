@@ -316,84 +316,14 @@ namespace xmlIO
         /// <returns>ProcessFlow object with properties stores, processes, links</returns>
         public static ProcessFlow MkProcessFlow(XmlNode flowXml)
         {
-            if (!XmlFormat(flowXml)) //if there is no formatting error in the xml input, still todo
-            {
-                XmlNodeList storesXml = flowXml.SelectNodes("stores");
-                Stores stores = MkStores(storesXml[0]);
-                XmlNodeList processesXml = flowXml.SelectNodes("processes");
-                Processes processes = MkProcesses(processesXml[0]);
-                XmlNodeList linksXml = flowXml.SelectNodes("links");
-                Links links = MkLinks(linksXml[0], stores, processes);
+            XmlNodeList storesXml = flowXml.SelectNodes("stores");
+            Stores stores = MkStores(storesXml[0]);
+            XmlNodeList processesXml = flowXml.SelectNodes("processes");
+            Processes processes = MkProcesses(processesXml[0]);
+            XmlNodeList linksXml = flowXml.SelectNodes("links");
+            Links links = MkLinks(linksXml[0], stores, processes);
 
-                return new ProcessFlow(stores, processes, links);
-            }
-            else
-            {
-                throw new Exception("The Xml input document has the incorrect format");
-            }
-        }
-
-        /// <summary>
-        /// Method that checks if the input Xml conforms
-        /// </summary>
-        /// <param name="flowXml"></param>
-        /// <returns>boolean as a result of the Xml doc's format, true = there is errors</returns>
-        public static bool XmlFormat(XmlNode flowXml) //todo
-        {
-            foreach (XmlNode flowItem in flowXml.ChildNodes)
-            {
-                foreach (XmlNode flowChild in flowItem)
-                {
-                    if (flowChild.Name == "store")
-                    {
-                        if (flowChild.SelectNodes("id").Count > 1 || flowChild.SelectNodes("id").Count == 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("typ").Count > 1 || flowChild.SelectNodes("typ").Count == 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("amount").Count > 1 || flowChild.SelectNodes("amount").Count == 0)
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("capacity").Count > 1) //do no need check to see if <= 0
-                        {
-                            return true;
-                        }
-                        if (flowChild.SelectNodes("amount").Count == 1 && flowChild.SelectNodes("capacity").Count == 1)
-                        {
-                            int amount = 0;
-                            int capacity = 0;
-                            foreach (XmlNode storeChild in flowChild)
-                            {
-                                if (storeChild.Name == "amount")
-                                {
-                                    amount = Int32.Parse(storeChild.InnerText); //needs a tryparse, todo
-                                }
-                                if (storeChild.Name == "capacity")
-                                {
-                                    capacity = Int32.Parse(storeChild.InnerText); //needs a tryparse, todo
-                                }
-                            }
-                            if (amount > capacity)
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                    if (flowChild.Name == "process")
-                    {
-                        // todo
-                    }
-                    if (flowChild.Name == "linkin" || flowChild.Name == "linkout")
-                    {
-                        //todo
-                    }
-                }
-            }
-            return false;
+            return new ProcessFlow(stores, processes, links);
         }
 
         /// <summary>
