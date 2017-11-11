@@ -9,7 +9,9 @@ namespace processFlowTest
     [TestClass]
     public class UnitTest1
     {
-
+        /// <summary>
+        /// Test checks if the program's output is correct
+        /// </summary>
         [TestMethod]
         public void BasicOutputTest()
         {
@@ -23,34 +25,50 @@ namespace processFlowTest
             }
         }
 
+        /// <summary>
+        /// Test checks if the program can handle errors in the Flow portion of the input xml doc
+        /// </summary>
         [TestMethod]
         public void IncorrectFlowInputTest()
         {
             Program.Main(new string[] { "flow2.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            //todo
         }
 
+        /// <summary>
+        /// Test checks if the program can handle errors in the Load portion of the input xml doc
+        /// </summary>
         [TestMethod]
         public void IncorectLoadInputTest()
         {
-            //make file
+            //make file, todo
         }
 
+        /// <summary>
+        /// Test checks if the program can handle errors in the Input portion of the input xml doc
+        /// </summary>
         [TestMethod]
         public void IncorrectExecuteInputTest()
         {
-            //make file
+            //make file, todo
         }
 
+        /// <summary>
+        /// Test checks if the program can handle errors in the Query portion of the input xml doc
+        /// </summary>
         [TestMethod]
         public void IncorrectQueryInputTest()
         {
-            //make file
+            //make file, todo
         }
 
+        /// <summary>
+        /// Test checks if the program can handle errors in the program start arguments
+        /// </summary>
         [TestMethod]
         public void IncorrectStartArgumentsTest()
         {
-            //make file
+            //make file, todo
         }
     }
 }
