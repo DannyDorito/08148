@@ -21,18 +21,18 @@ namespace xmlIO
         {
             //Creates a new xml doc
             XmlDocument flowinXml = new XmlDocument();
-            //try //put this back on submission
-            //{
-            //Puts the read xml into the new xml doc
-            using (TextReader reader = File.OpenText(pathname))
+            try
             {
-                flowinXml.Load(reader);
+                //Puts the read xml into the new xml doc
+                using (TextReader reader = File.OpenText(pathname))
+                {
+                    flowinXml.Load(reader);
+                }
             }
-            //}
-            //catch (Exception e) //put this back on submission
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             //Puts the input child nodes into an XmlNodeList inputsXml
             XmlNodeList inputsXml = flowinXml.SelectNodes("input")[0].ChildNodes;
             List<IFlowOperation> result = new List<IFlowOperation>();
@@ -52,15 +52,15 @@ namespace xmlIO
                     //if the inputXml is execute
                     case "execute":
                         {
-                            //try //put this back on submission
-                            //{
-                            //add the execution to the results
-                            result.Add(new OpExecute(ParseText(inputXml.InnerText)));
-                            //}
-                            //catch (Exception e) //put this back on submission
-                            //{
-                            //    // do nothing
-                            //}
+                            try
+                            {
+                                //add the execution to the results
+                                result.Add(new OpExecute(ParseText(inputXml.InnerText)));
+                            }
+                            catch (Exception e)
+                            {
+                                // do nothing
+                            }
                             break;
                         }
                     //if the inputXml is query
@@ -117,18 +117,18 @@ namespace xmlIO
         {
             //create a new xml doc
             XmlDocument flowoutXml = new XmlDocument();
-            //try //put this back on submission
-            //{
-            //fill the xml doc with the results
-            using (TextReader reader = File.OpenText(pathname))
+            try
             {
-                flowoutXml.Load(reader);
+                //fill the xml doc with the results
+                using (TextReader reader = File.OpenText(pathname))
+                {
+                    flowoutXml.Load(reader);
+                }
             }
-            //}
-            //catch (Exception e) //put this back on submission
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             XmlNodeList outputsXml = flowoutXml.SelectNodes("OpQueryOutput")[0].ChildNodes;
             List<int> result = new List<int>();
             foreach (XmlNode outputXml in outputsXml)
@@ -354,18 +354,18 @@ namespace xmlIO
         /// <param name="pathname">pathname of the Xml file</param>
         private static void SerializeToXMLFile(Object obj, String pathname)
         {
-            //try
-            //{
-            XmlSerializer xmlSerializer = new XmlSerializer(obj.GetType());
-            using (TextWriter writer = File.CreateText(pathname))
+            try
             {
-                xmlSerializer.Serialize(writer, obj);
+                XmlSerializer xmlSerializer = new XmlSerializer(obj.GetType());
+                using (TextWriter writer = File.CreateText(pathname))
+                {
+                    xmlSerializer.Serialize(writer, obj);
+                }
             }
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine("Failed to serialize: " + e.Message);
-            //}
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to serialize: " + e.Message);
+            }
         }
     }
 }
