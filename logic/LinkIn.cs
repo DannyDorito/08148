@@ -14,8 +14,6 @@ namespace logic
             this.sourceId = sourceId;
             this.targetId = targetId;
         }
-
-        //this is important, todo
         public override void Connect(Stores stores, Processes processes)
         {
             Store s = stores.Find(sourceId);

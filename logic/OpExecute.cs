@@ -19,7 +19,7 @@ namespace logic
 
         public override Object Output(Object result)
         {
-            return null;//somthing should be here, todo
+            return null;
         }
 
         public override string ToString()

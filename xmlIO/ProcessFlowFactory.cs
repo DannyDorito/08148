@@ -57,7 +57,7 @@ namespace xmlIO
                                 //add the execution to the results
                                 result.Add(new OpExecute(ParseText(inputXml.InnerText)));
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 // do nothing
                             }
@@ -149,7 +149,7 @@ namespace xmlIO
                     //else
                     default:
                         {
-                            throw new Exception("Unknown Xml: " + outputXml.Name); //this should be better, todo
+                            throw new Exception("Unknown Xml: " + outputXml.Name);
                         }
                 }
             }
@@ -189,9 +189,14 @@ namespace xmlIO
             {
                 capacityData = capacityXml[0].InnerText;
 
-                return new Store(id, typ, amount, ParseText(capacityData));
+                int capacity = ParseText(capacityData);
+
+                //bad workaround for capacity = 0, todo
+                if (capacity <= amount && capacity != 0)
+                {
+                    return new Store(id, typ, amount, capacity);
+                }
             }
-            //else
             return new Store(id, typ, amount);
         }
 
@@ -294,7 +299,7 @@ namespace xmlIO
         /// <summary>
         /// Creator of the LinkIn object
         /// </summary>
-        /// <param name="node"></param> /todo
+        /// <param name="node">the given link node</param>
         /// <returns>LinkIn object with properties id, sourceId, targetId, volume</returns>
         public static LinkIn MkLinkIn(XmlNode node)
         {
@@ -309,7 +314,7 @@ namespace xmlIO
         /// <summary>
         /// Creator of the LinkOut object
         /// </summary>
-        /// <param name="node"></param> //todo
+        /// <param name="node">the given link node</param>
         /// <returns>LinkOut object with properties id, sourceId, targetId, volume</returns>
         public static LinkOut MkLinkOut(XmlNode node)
         {
@@ -341,7 +346,7 @@ namespace xmlIO
         /// <summary>
         /// Method to output the results to an xml doc through serialization
         /// </summary>
-        /// <param name="result"></param> //todo
+        /// <param name="result">the resultant output of xml serialization</param>
         public static void Output(Object result)
         {
             SerializeToXMLFile(result, outFileName);
@@ -350,7 +355,7 @@ namespace xmlIO
         /// <summary>
         /// Method to serialize the output Xml file and write output to target
         /// </summary>
-        /// <param name="obj">todo</param>
+        /// <param name="obj">the given object to serialize</param>
         /// <param name="pathname">pathname of the Xml file</param>
         private static void SerializeToXMLFile(Object obj, String pathname)
         {

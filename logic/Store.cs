@@ -22,7 +22,6 @@ namespace logic
             this.capacity = capacity;
         }
 
-        //this may be useful in limiting capacity, todo
         public bool Limited()
         {
             return capacity != -1;

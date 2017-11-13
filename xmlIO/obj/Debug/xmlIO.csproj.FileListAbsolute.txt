@@ -46,3 +46,11 @@ C:\08148-master\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
 C:\08148-master\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
 C:\08148-master\xmlIO\obj\Debug\xmlIO.dll
 C:\08148-master\xmlIO\obj\Debug\xmlIO.pdb
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\xmlIO.dll
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\xmlIO.pdb
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\logic.dll
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\bin\Debug\logic.pdb
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.csprojResolveAssemblyReference.cache
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.csproj.CoreCompileInputs.cache
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.dll
+\\cna-cifs.adir.hull.ac.uk\home5\528\528209\08148-master\xmlIO\obj\Debug\xmlIO.pdb

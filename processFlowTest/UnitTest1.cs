@@ -41,7 +41,7 @@ namespace processFlowTest
         [TestMethod]
         public void IncorectLoadInputTest()
         {
-            //make file, todo
+            //make file
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace processFlowTest
         [TestMethod]
         public void IncorrectExecuteInputTest()
         {
-            //make file, todo
+            //make file
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace processFlowTest
         [TestMethod]
         public void IncorrectQueryInputTest()
         {
-            //make file, todo
+            //make file
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace processFlowTest
         [TestMethod]
         public void IncorrectStartArgumentsTest()
         {
-            //make file, todo
+            Program.Main(new string[] { "abc.xml" });
         }
     }
 }

@@ -28,7 +28,6 @@ namespace logic
             this.typsOut = typsOut;
         }
 
-        //will be usefull in limiting execution, todo
         public bool Enabled()
         {
             foreach (LinkIn link in linksIn)
@@ -49,28 +48,57 @@ namespace logic
         }
 
         /// <summary>
-        /// Finds the total resource cost of a given process (input resources + output resources)
+        /// Finds the total process cost of a given process ID
         /// </summary>
-        /// <returns>the total resouce cost of a given process</returns>
-        public int ProcessCost()
+        /// <param name="processID">The input id identifier of a process</param>
+        /// <returns>int total cost of a given process</returns>
+        public int TotalProcessCost(string processID)
+        {
+            int processCost = LinkInCost(processID) + LinkOutCost(processID);
+
+            return processCost;
+        }
+
+        /// <summary>
+        /// Finds the link in cost
+        /// </summary>
+        /// <param name="processID">string ID of the given process</param>
+        /// <returns>the total link in cost of a given process</returns>
+        public int LinkInCost(string processID)
         {
             int linkInDifference = 0;
-            int linksOutDifference = 0;
             foreach (LinkIn link in linksIn)
             {
-                linkInDifference = FindDifference(link.source.amount, link.amount);
+                if (link.id == processID)
+                {
+                   linkInDifference = FindDifference(link.source.amount, link.amount);
+                }
             }
+            return linkInDifference;
+        }
+
+        /// <summary>
+        /// Finds the link out cost
+        /// </summary>
+        /// <param name="processID">string ID of the given process</param>
+        /// <returns>the total link out cost of a given process</returns>
+        public int LinkOutCost(string processID)
+        {
+            int linksOutDifference = 0;
             foreach (LinkOut link in linksOut)
             {
-                linksOutDifference = FindDifference(link.target.amount, link.amount);
+                if (link.id == processID)
+                {
+                   linksOutDifference = FindDifference(link.target.amount, link.amount);
+                }
             }
-            return linkInDifference + linksOutDifference;
+            return linksOutDifference;
         }
 
         /// <summary>
         /// Finds the difference between two given ints
         /// </summary>
-        /// <param name="num1">input one</param>
+        /// <param name="num1">input 1</param>
         /// <param name="num2">input 2</param>
         /// <returns></returns>
         public int FindDifference(int num1, int num2)
@@ -80,7 +108,6 @@ namespace logic
 
         public void Execute()
         {
-            ProcessCost();
             //removes resources
             foreach (LinkIn link in linksIn)
             {
