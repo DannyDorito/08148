@@ -51,7 +51,7 @@ namespace logic
         /// Finds the total process cost of a given process ID
         /// </summary>
         /// <param name="processID">The input id identifier of a process</param>
-        /// <returns>int total cost of a given process</returns>
+        /// <returns>int total cost of a given process</returns>    
         public int TotalProcessCost(string processID)
         {
             int processCost = LinkInCost(processID) + LinkOutCost(processID);
@@ -93,6 +93,17 @@ namespace logic
                 }
             }
             return linksOutDifference;
+        }
+
+        public List<Process> sortedprocess = new List<Process>();
+        public void SortProcesses(List<Process> unsortedlist)
+        {
+            foreach (Process p in unsortedlist)
+            {
+                TotalProcessCost(p.id);
+                unsortedlist.Sort();
+            }
+
         }
 
         /// <summary>
