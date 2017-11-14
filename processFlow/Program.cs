@@ -9,54 +9,47 @@ namespace processFlow
     {
         public static void Main(String[] args)
         {
-            //try
-            //{  // do not remove this try-catch statement, do not add any code outside try-block
-            List<IFlowOperation> inputs = null;
-            //Gets the load arguments, calls the load input with arguments
-            try //messy, todo
-            {
-                //List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission also uncomment all try catch statements
-                inputs = ProcessFlowFactory.LoadInput(args[0]);       // remove this line before submission
-            }
-            catch (Exception)
-            {
-                Environment.Exit(0);
-            }
-            ProcessFlow flow = null;
-            foreach (IFlowOperation input in inputs)
-            {
-                if (input is ProcessFlow) //if input is the object ProcessFlow
+            try
+            {  // do not remove this try-catch statement, do not add any code outside try-block
+                //List<IFlowOperation> inputs = null;
+                //Gets the load arguments, calls the load input with arguments
+                List<IFlowOperation> inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission also uncomment all try catch statements
+                //inputs = ProcessFlowFactory.LoadInput(args[0]);       // remove this line before submission
+                ProcessFlow flow = null;
+                foreach (IFlowOperation input in inputs)
                 {
-                    flow = (ProcessFlow)input;
-                    flow.Init();
-                }
-                else if (flow != null && input is Operation)
-                {
-                    Operation op = (Operation)input;
-                    Object result = null;
-                    try
+                    if (input is ProcessFlow) //if input is the object ProcessFlow
                     {
-                        result = op.Do(flow);
+                        flow = (ProcessFlow)input;
+                        flow.Init();
                     }
-                    catch (Exception)
+                    else if (flow != null && input is Operation)
                     {
+                        Operation op = (Operation)input;
+                        Object result = null;
+                        try
+                        {
+                            result = op.Do(flow);
+                        }
+                        catch (Exception)
+                        {
 
-                    }
-                    if (result != null)
-                    {
-                        ProcessFlowFactory.Output(op.Output(result));
+                        }
+                        if (result != null)
+                        {
+                            ProcessFlowFactory.Output(op.Output(result));
+                        }
                     }
                 }
             }
-            //}
-            //catch (Exception e)
-            //{
-            //    // do not modify the code in this catch block except to comment two lines at end of block
-            //    Console.WriteLine("Unhandled exception: " + e.Message);
-            //    // comment following two lines before final build and submission
-            //    Console.WriteLine("Press any key to exit program.");
-            //    Console.ReadKey();
-            //}
+            catch (Exception e)
+            {
+                // do not modify the code in this catch block except to comment two lines at end of block
+                Console.WriteLine("Unhandled exception: " + e.Message);
+                // comment following two lines before final build and submission
+                Console.WriteLine("Press any key to exit program.");
+                Console.ReadKey();
+            }
         }
     }
 }
