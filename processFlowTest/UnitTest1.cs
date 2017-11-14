@@ -6,6 +6,9 @@ using xmlIO;
 
 namespace processFlowTest
 {
+    /// <summary>
+    /// The test suite for the processFlow solution
+    /// </summary>
     [TestClass]
     public class UnitTest1
     {
@@ -13,6 +16,7 @@ namespace processFlowTest
         /// Test checks if the program's output is correct
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void BasicOutputTest()
         {
             Program.Main(new string[] { "flow1.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
@@ -29,9 +33,10 @@ namespace processFlowTest
         /// Test checks if the program can handle errors in the Flow portion of the input xml doc
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectFlowInputTest()
         {
-            Program.Main(new string[] { "flow2.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            Program.Main(new string[] { "incorrectflow.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
             //todo
         }
 
@@ -39,36 +44,44 @@ namespace processFlowTest
         /// Test checks if the program can handle errors in the Load portion of the input xml doc
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorectLoadInputTest()
         {
-            //make file
+            Program.Main(new string[] { "incorrectload.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            //todo
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the Input portion of the input xml doc
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectExecuteInputTest()
         {
-            //make file
+            Program.Main(new string[] { "incorrectexecute.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            //todo
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the Query portion of the input xml doc
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectQueryInputTest()
         {
-            //make file
+            Program.Main(new string[] { "incorrectquery.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            //todo
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the program start arguments
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException),"name of exception")] //set name of exception
         public void IncorrectStartArgumentsTest()
         {
-            Program.Main(new string[] { "abc.xml" });
+            Program.Main(new string[] { "abc.xml" }); //the file does not exist
+            //todo
         }
     }
 }
