@@ -23,6 +23,7 @@ namespace processFlow
                         flow = (ProcessFlow)input;
                         flow.Init();
                     }
+                    // if there is items in flow and the input is a Operation type
                     else if (flow != null && input is Operation)
                     {
                         Operation op = (Operation)input;
@@ -33,7 +34,7 @@ namespace processFlow
                         }
                         catch (Exception)
                         {
-
+                            //do nothing
                         }
                         if (result != null)
                         {
