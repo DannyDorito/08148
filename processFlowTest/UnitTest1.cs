@@ -72,16 +72,5 @@ namespace processFlowTest
             Program.Main(new string[] { "incorrectquery.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
             //todo
         }
-
-        /// <summary>
-        /// Test checks if the program can handle errors in the program start arguments
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException),"name of exception")] //set name of exception
-        public void IncorrectStartArgumentsTest()
-        {
-            Program.Main(new string[] { "abc.xml" }); //the file does not exist
-            //todo
-        }
     }
 }
