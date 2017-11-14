@@ -130,7 +130,7 @@ namespace logic
             //adds resources
             foreach (LinkOut link in linksOut)
             {
-                if ((link.target.amount += link.amount) >= 0)
+                if ((link.target.amount += link.amount) <= 0)
                 {
                     link.target.amount += link.amount;
                 }
