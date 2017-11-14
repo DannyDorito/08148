@@ -1,8 +1,7 @@
 ﻿using System;
 
 namespace logic
-{
-
+{ 
     public abstract class Link : Node
     {
         public readonly int amount = -1;

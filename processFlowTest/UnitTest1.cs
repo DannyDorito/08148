@@ -30,7 +30,7 @@ namespace processFlowTest
         }
 
         /// <summary>
-        /// Test checks if the program can handle errors in the Flow portion of the input xml doc
+        /// Test checks if the program can handle errors in the Flow portion of the input XML doc
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
@@ -41,7 +41,7 @@ namespace processFlowTest
         }
 
         /// <summary>
-        /// Test checks if the program can handle errors in the Load portion of the input xml doc
+        /// Test checks if the program can handle errors in the Load portion of the input XML doc
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
@@ -52,7 +52,7 @@ namespace processFlowTest
         }
 
         /// <summary>
-        /// Test checks if the program can handle errors in the Input portion of the input xml doc
+        /// Test checks if the program can handle errors in the Input portion of the input XML doc
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
@@ -63,7 +63,7 @@ namespace processFlowTest
         }
 
         /// <summary>
-        /// Test checks if the program can handle errors in the Query portion of the input xml doc
+        /// Test checks if the program can handle errors in the Query portion of the input XML doc
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception

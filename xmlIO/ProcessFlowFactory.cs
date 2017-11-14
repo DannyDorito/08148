@@ -8,22 +8,22 @@ using logic; //uses the logic created in Logic.csproj
 namespace xmlIO
 {
     /// <summary>
-    /// All of the prosessing methods for the inputted xml document
+    /// All of the processing methods for the inputted XML document
     /// </summary>
     public class ProcessFlowFactory
     {
         /// <summary>
-        /// Defined name of the output xml document
+        /// Defined name of the output XML document
         /// </summary>
-        // Defines the output xml name
+        // Defines the output XML name
         private const String outFileName = "out.xml";
         public static List<IFlowOperation> LoadInput(String pathname)
         {
-            //Creates a new xml doc
+            //Creates a new XML doc
             XmlDocument flowinXml = new XmlDocument();
             try
             {
-                //Puts the read xml into the new xml doc
+                //Puts the read XML into the new XML doc
                 using (TextReader reader = File.OpenText(pathname))
                 {
                     flowinXml.Load(reader);
@@ -101,7 +101,7 @@ namespace xmlIO
                     //else
                     default:
                         {
-                            throw new Exception("Unknown Xml: " + inputXml.Name);
+                            throw new Exception("Unknown XML: " + inputXml.Name);
                         }
                 }
             }
@@ -109,17 +109,17 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Loads the input xml  into an xml document
+        /// Loads the input XML  into an XML document
         /// </summary>
         /// <param name="pathname">the name of the input path</param>
         /// <returns></returns>
         public static List<int> LoadOutput(String pathname)
         {
-            //create a new xml doc
+            //create a new XML doc
             XmlDocument flowoutXml = new XmlDocument();
             try
             {
-                //fill the xml doc with the results
+                //fill the XML doc with the results
                 using (TextReader reader = File.OpenText(pathname))
                 {
                     flowoutXml.Load(reader);
@@ -149,7 +149,7 @@ namespace xmlIO
                     //else
                     default:
                         {
-                            throw new Exception("Unknown Xml: " + outputXml.Name);
+                            throw new Exception("Unknown XML: " + outputXml.Name);
                         }
                 }
             }
@@ -157,7 +157,7 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Tryparse Method
+        /// Try parse Method
         /// </summary>
         /// <param name="input">input string to parse into an int</param>
         /// <returns>int if the text parsed or 0</returns>
@@ -168,9 +168,9 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Processes the store portion of the inputted xml doc
+        /// Processes the store portion of the inputted XML doc
         /// </summary>
-        /// <param name="storeXml">The xml node storage for store</param>
+        /// <param name="storeXml">The XML node storage for store</param>
         /// <returns>A list of store</returns>
         public static Store MkStore(XmlNode storeXml)
         {
@@ -201,9 +201,9 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Processes the stores portion of the inputted xml doc
+        /// Processes the stores portion of the inputted XML doc
         /// </summary>
-        /// <param name="storesXml">The xml node storage for stores</param>
+        /// <param name="storesXml">The XML node storage for stores</param>
         /// <returns>A list of stores</returns>
         public static Stores MkStores(XmlNode storesXml)
         {
@@ -218,9 +218,9 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Processes the process portion of the inputted xml doc
+        /// Processes the process portion of the inputted XML doc
         /// </summary>
-        /// <param name="processXml">The xml node storage for process</param>
+        /// <param name="processXml">The XML node storage for process</param>
         /// <returns>A list of process</returns>
         public static Process MkProcess(XmlNode processXml)
         {
@@ -247,9 +247,9 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Processes the processes portion of the inputted xml doc
+        /// Processes the processes portion of the inputted XML doc
         /// </summary>
-        /// <param name="processesXml">The xml node storage for processes</param>
+        /// <param name="processesXml">The XML node storage for processes</param>
         /// <returns>A list of Processes</returns>
         public static Processes MkProcesses(XmlNode processesXml)
         {
@@ -265,11 +265,11 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Processes the links portion of the inputted xml doc
+        /// Processes the links portion of the inputted XML doc
         /// </summary>
-        /// <param name="linksXml">xml node to store each link object </param>
-        /// <param name="stores">xml node stores</param>
-        /// <param name="processes">xml bode processes</param>
+        /// <param name="linksXml">XML node to store each link object </param>
+        /// <param name="stores">XML node stores</param>
+        /// <param name="processes">XML bode processes</param>
         /// <returns>List of Links</returns>
         public static Links MkLinks(XmlNode linksXml, Stores stores, Processes processes)
         {
@@ -329,7 +329,7 @@ namespace xmlIO
         /// <summary>
         /// Creator of the Process Flow object
         /// </summary>
-        /// <param name="flowXml">xml node that contains the flow child node in flowsXml</param>
+        /// <param name="flowXml">XML node that contains the flow child node in flowsXml</param>
         /// <returns>ProcessFlow object with properties stores, processes, links</returns>
         public static ProcessFlow MkProcessFlow(XmlNode flowXml)
         {
@@ -344,19 +344,19 @@ namespace xmlIO
         }
 
         /// <summary>
-        /// Method to output the results to an xml doc through serialization
+        /// Method to output the results to an XML doc through serialization
         /// </summary>
-        /// <param name="result">the resultant output of xml serialization</param>
+        /// <param name="result">the resultant output of XML serialization</param>
         public static void Output(Object result)
         {
             SerializeToXMLFile(result, outFileName);
         }
 
         /// <summary>
-        /// Method to serialize the output Xml file and write output to target
+        /// Method to serialize the output XML file and write output to target
         /// </summary>
         /// <param name="obj">the given object to serialize</param>
-        /// <param name="pathname">pathname of the Xml file</param>
+        /// <param name="pathname">pathname of the XML file</param>
         private static void SerializeToXMLFile(Object obj, String pathname)
         {
             try
