@@ -71,7 +71,7 @@ namespace logic
             {
                 if (link.id == processID)
                 {
-                   linkInDifference = FindDifference(link.source.amount, link.amount);
+                    linkInDifference = FindDifference(link.source.amount, link.amount);
                 }
             }
             return linkInDifference;
@@ -89,7 +89,7 @@ namespace logic
             {
                 if (link.id == processID)
                 {
-                   linksOutDifference = FindDifference(link.target.amount, link.amount);
+                    linksOutDifference = FindDifference(link.target.amount, link.amount);
                 }
             }
             return linksOutDifference;
@@ -122,12 +122,18 @@ namespace logic
             //removes resources
             foreach (LinkIn link in linksIn)
             {
-                link.source.amount -= link.amount;
+                if ((link.source.amount -= link.amount) >= 0)
+                {
+                    link.source.amount -= link.amount;
+                }
             }
             //adds resources
             foreach (LinkOut link in linksOut)
             {
-                link.target.amount += link.amount;
+                if ((link.target.amount += link.amount) >= 0)
+                {
+                    link.target.amount += link.amount;
+                }
             }
         }
     }
