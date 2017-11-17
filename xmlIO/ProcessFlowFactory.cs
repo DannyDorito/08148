@@ -344,7 +344,7 @@ namespace xmlIO
             return new ProcessFlow(stores, processes, links);
         }
 
-        private bool InputRegex(string input)
+        private bool StringInputIsValid(string input)
         {
             char[] inputChar = input.ToCharArray();
 
