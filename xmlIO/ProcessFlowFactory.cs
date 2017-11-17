@@ -16,7 +16,6 @@ namespace xmlIO
         /// <summary>
         /// Defined name of the output XML document
         /// </summary>
-        // Defines the output XML name
         private const String outFileName = "out.xml";
         public static List<IFlowOperation> LoadInput(String pathname)
         {
@@ -177,18 +176,25 @@ namespace xmlIO
         {
             XmlNodeList idXml = storeXml.SelectNodes("id");
             String id = idXml[0].InnerText;
+
+
             XmlNodeList typXml = storeXml.SelectNodes("typ");
-            String typ = typXml[0].InnerText;
+            String typ = "";
+            if (StringInputIsValid(typXml[0].InnerText))
+            {
+                typ = typXml[0].InnerText;
+            }
+
+            
             XmlNodeList amountXml = storeXml.SelectNodes("amount");
 
             int amount = ParseText(amountXml[0].InnerText);
 
             //optional
             XmlNodeList capacityXml = storeXml.SelectNodes("capacity");
-            String capacityData = null;
             if (capacityXml.Count > 0)
             {
-                capacityData = capacityXml[0].InnerText;
+                String capacityData = capacityXml[0].InnerText;
 
                 int capacity = ParseText(capacityData);
 
@@ -348,7 +354,7 @@ namespace xmlIO
         /// </summary>
         /// <param name="input">string to evaluate if conforms</param>
         /// <returns>boolean if input is valid</returns>
-        private bool StringInputIsValid(string input)
+        public static bool StringInputIsValid(string input)
         {
             char[] inputChar = input.ToCharArray();
 
