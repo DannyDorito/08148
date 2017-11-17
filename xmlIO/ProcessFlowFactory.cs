@@ -185,7 +185,7 @@ namespace xmlIO
                 typ = typXml[0].InnerText;
             }
 
-            
+
             XmlNodeList amountXml = storeXml.SelectNodes("amount");
 
             int amount = ParseText(amountXml[0].InnerText);
@@ -238,7 +238,10 @@ namespace xmlIO
             foreach (XmlNode typInXml in typsInXml)
             {
                 //add typInXml to typsIn
-                typsIn.Add(typInXml.FirstChild.InnerText);
+                if (StringInputIsValid(typInXml.FirstChild.InnerText))
+                {
+                    typsIn.Add(typInXml.FirstChild.InnerText);
+                }
             }
 
             List<String> typsOut = new List<String>();
@@ -247,7 +250,10 @@ namespace xmlIO
             foreach (XmlNode typOutXml in typsOutXml)
             {
                 //add typOutXml to typsOut
-                typsOut.Add(typOutXml.FirstChild.InnerText);
+                if (StringInputIsValid(typOutXml.FirstChild.InnerText))
+                {
+                    typsOut.Add(typOutXml.FirstChild.InnerText);
+                }
             }
             return new Process(id, typsIn, typsOut);
         }
@@ -273,7 +279,7 @@ namespace xmlIO
         /// <summary>
         /// Processes the links portion of the inputted XML doc
         /// </summary>
-        /// <param name="linksXml">XML node to store each link object </param>
+        /// <param name="linksXml">XML node to store each link object</param>
         /// <param name="stores">XML node stores</param>
         /// <param name="processes">XML bode processes</param>
         /// <returns>List of Links</returns>
@@ -310,8 +316,17 @@ namespace xmlIO
         public static LinkIn MkLinkIn(XmlNode node)
         {
             String id = node.SelectNodes("id")[0].InnerText;
-            String sourceId = node.SelectNodes("source")[0].InnerText;
-            String targetId = node.SelectNodes("target")[0].InnerText;
+
+            String sourceId = "";
+            if (StringInputIsValid(node.SelectNodes("source")[0].InnerText))
+            {
+                sourceId = node.SelectNodes("source")[0].InnerText;
+            }
+            String targetId = "";
+            if (StringInputIsValid(node.SelectNodes("target")[0].InnerText))
+            {
+                targetId = node.SelectNodes("target")[0].InnerText;
+            }
             int volume = ParseText(node.SelectNodes("amount")[0].InnerText);
 
             return new LinkIn(id, sourceId, targetId, volume);
@@ -325,8 +340,18 @@ namespace xmlIO
         public static LinkOut MkLinkOut(XmlNode node)
         {
             String id = node.SelectNodes("id")[0].InnerText;
-            String sourceId = node.SelectNodes("source")[0].InnerText;
-            String targetId = node.SelectNodes("target")[0].InnerText;
+
+            String sourceId = "";
+            if (StringInputIsValid(node.SelectNodes("source")[0].InnerText))
+            {
+                sourceId = node.SelectNodes("source")[0].InnerText;
+            }
+
+            String targetId = "";
+            if (StringInputIsValid(node.SelectNodes("target")[0].InnerText))
+            {
+                targetId = node.SelectNodes("target")[0].InnerText;
+            }
             int volume = ParseText(node.SelectNodes("amount")[0].InnerText);
 
             return new LinkOut(id, sourceId, targetId, volume);
