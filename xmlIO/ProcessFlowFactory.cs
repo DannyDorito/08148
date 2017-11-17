@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 using logic; //uses the logic created in Logic.csproj
-using System.Text.RegularExpressions;
 
 namespace xmlIO
 {
@@ -54,8 +53,13 @@ namespace xmlIO
                         {
                             try
                             {
-                                //add the execution to the results
-                                result.Add(new OpExecute(ParseText(inputXml.InnerText)));
+                                int exeInt = ParseText(inputXml.InnerText);
+
+                                if (exeInt != 0)
+                                {
+                                    //add the execution to the results
+                                    result.Add(new OpExecute(ParseText(inputXml.InnerText)));
+                                }
                             }
                             catch (Exception)
                             {
@@ -66,15 +70,25 @@ namespace xmlIO
                     //if the inputXml is query
                     case "query":
                         {
-                            XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
-                            List<String> stores = new List<String>();
-                            foreach (XmlNode storeXml in storesXml)
+                            try
                             {
-                                //add the store to stores
-                                stores.Add(storeXml.InnerText);
+                                XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
+                                List<String> stores = new List<String>();
+                                foreach (XmlNode storeXml in storesXml)
+                                {
+                                    if (StringInputIsValid(storeXml.InnerText))
+                                    {
+                                        //add the store to stores
+                                        stores.Add(storeXml.InnerText);
+                                    }
+                                }
+                                //add the store to the results
+                                result.Add(new OpQuery(stores));
                             }
-                            //add the store to the results
-                            result.Add(new OpQuery(stores));
+                            catch (Exception)
+                            {
+                                // do nothing
+                            }
                             break;
                         }
                     //if the inputXml is load
@@ -87,7 +101,11 @@ namespace xmlIO
                             {
                                 XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
                                 XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
-                                storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
+
+                                if (StringInputIsValid(storeXml[0].InnerText))
+                                {
+                                    storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
+                                }
                             }
                             //add the store to the results
                             result.Add(new OpLoad(storeAmounts));
