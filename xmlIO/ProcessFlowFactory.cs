@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 using logic; //uses the logic created in Logic.csproj
+using System.Text.RegularExpressions;
 
 namespace xmlIO
 {
@@ -341,6 +342,33 @@ namespace xmlIO
             Links links = MkLinks(linksXml[0], stores, processes);
 
             return new ProcessFlow(stores, processes, links);
+        }
+
+        private bool InputRegex(string input)
+        {
+            char[] inputChar = input.ToCharArray();
+
+            if (inputChar.Length > 0)
+            {
+                for (int charNum = 0; charNum < inputChar.Length; charNum++)
+                {
+                    if (charNum == 0)
+                    {
+                        if (!Char.IsLetter(inputChar[0]))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!Char.IsNumber(inputChar[charNum]))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
         /// <summary>
