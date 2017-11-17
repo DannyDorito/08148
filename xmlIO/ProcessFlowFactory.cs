@@ -344,6 +344,11 @@ namespace xmlIO
             return new ProcessFlow(stores, processes, links);
         }
 
+        /// <summary>
+        /// Takes an input string and determines if the first char is a letter, and the others are numbers, input conformance
+        /// </summary>
+        /// <param name="input">string to evaluate if conforms</param>
+        /// <returns>boolean if input is valid</returns>
         private bool StringInputIsValid(string input)
         {
             char[] inputChar = input.ToCharArray();
