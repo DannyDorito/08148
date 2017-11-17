@@ -192,7 +192,6 @@ namespace xmlIO
 
                 int capacity = ParseText(capacityData);
 
-                //bad workaround for capacity = 0, todo
                 if (capacity <= amount && capacity != 0)
                 {
                     return new Store(id, typ, amount, capacity);
@@ -379,7 +378,7 @@ namespace xmlIO
         /// <summary>
         /// Method to output the results to an XML doc through serialization
         /// </summary>
-        /// <param name="result">the resultant output of XML serialization</param>
+        /// <param name="result">The resultant output of XML serialization</param>
         public static void Output(Object result)
         {
             SerializeToXMLFile(result, outFileName);

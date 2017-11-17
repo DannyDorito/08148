@@ -107,7 +107,7 @@ namespace logic
         }
 
         /// <summary>
-        /// Finds the difference between two given ints
+        /// Finds the difference between two given integers
         /// </summary>
         /// <param name="num1">input 1</param>
         /// <param name="num2">input 2</param>
