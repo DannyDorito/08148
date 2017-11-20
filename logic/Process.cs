@@ -95,15 +95,23 @@ namespace logic
             return linksOutDifference;
         }
 
-        public List<Process> sortedprocess = new List<Process>();
-        public void SortProcesses(List<Process> unsortedlist)
+        /// <summary>
+        /// List of processes that have been sorted from lowest cost to highest cost
+        /// </summary>
+        public List<Process> SortedProcess = new List<Process>();
+
+        /// <summary>
+        /// List of processes to be sorted from lowest cost to highest cost
+        /// </summary>
+        /// <param name="UnsortedProcessList">list of proccesses</param>
+        public void SortProcesses(List<Process> UnsortedProcessList)
         {
-            foreach (Process p in unsortedlist)
+            foreach (Process p in UnsortedProcessList)
             {
                 TotalProcessCost(p.id);
-                unsortedlist.Sort();
+                UnsortedProcessList.Add(p);
             }
-
+            UnsortedProcessList.Sort();
         }
 
         /// <summary>
@@ -111,7 +119,7 @@ namespace logic
         /// </summary>
         /// <param name="num1">input 1</param>
         /// <param name="num2">input 2</param>
-        /// <returns></returns>
+        /// <returns>difference between two given integers</returns>
         public int FindDifference(int num1, int num2)
         {
             return Math.Abs(num1 - num2);
@@ -122,6 +130,7 @@ namespace logic
             //removes resources
             foreach (LinkIn link in linksIn)
             {
+                //Prevents negitive amounts from being executed
                 if ((link.source.amount -= link.amount) >= 0)
                 {
                     link.source.amount -= link.amount;
@@ -130,6 +139,7 @@ namespace logic
             //adds resources
             foreach (LinkOut link in linksOut)
             {
+                //Prevents negitive amounts from being executed
                 if ((link.target.amount += link.amount) <= 0)
                 {
                     link.target.amount += link.amount;

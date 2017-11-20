@@ -45,7 +45,12 @@ namespace xmlIO
                         {
                             ProcessFlow processFlow = MkProcessFlow(inputXml);
                             //add the process to the results
-                            result.Add(processFlow);
+
+                            //if there is no errors in inputXml
+                            if (processFlow != null)
+                            {
+                                result.Add(processFlow);
+                            }
                             break;
                         }
                     //if the inputXml is execute
@@ -382,14 +387,72 @@ namespace xmlIO
         /// <returns>ProcessFlow object with properties stores, processes, links</returns>
         public static ProcessFlow MkProcessFlow(XmlNode flowXml)
         {
-            XmlNodeList storesXml = flowXml.SelectNodes("stores");
-            Stores stores = MkStores(storesXml[0]);
-            XmlNodeList processesXml = flowXml.SelectNodes("processes");
-            Processes processes = MkProcesses(processesXml[0]);
-            XmlNodeList linksXml = flowXml.SelectNodes("links");
-            Links links = MkLinks(linksXml[0], stores, processes);
+            bool nullValue = false;
 
-            return new ProcessFlow(stores, processes, links);
+            XmlNodeList storesXml = null;
+            if (flowXml.SelectNodes("stores") != null)
+            {
+                storesXml = flowXml.SelectNodes("stores");
+            }
+            else
+            {
+                nullValue = true;
+            }
+
+            Stores stores = null;
+            if (storesXml[0] != null)
+            {
+                stores = MkStores(storesXml[0]);
+            }
+            else
+            {
+                nullValue = true;
+            }
+
+            XmlNodeList processesXml = null;
+            if (flowXml.SelectNodes("processes") != null)
+            {
+                processesXml = flowXml.SelectNodes("processes");
+            }
+            else
+            {
+                nullValue = true;
+            }
+
+            Processes processes = null;
+            if (processesXml[0] != null)
+            {
+                processes = MkProcesses(processesXml[0]);
+            }
+            else
+            {
+                nullValue = true;
+            }
+
+            XmlNodeList linksXml = null;
+            if (flowXml.SelectNodes("links") != null)
+            {
+                linksXml = flowXml.SelectNodes("links");
+            }
+            else
+            {
+                nullValue = true;
+            }
+
+            if (linksXml[0] == null)
+            {
+                nullValue = true;
+            }
+
+            Links links = null;
+            //if there is no previous null values, execute
+            if (!nullValue)
+            {
+                links = MkLinks(linksXml[0], stores, processes);
+
+                return new ProcessFlow(stores, processes, links);
+            }
+            return null;
         }
 
         /// <summary>
