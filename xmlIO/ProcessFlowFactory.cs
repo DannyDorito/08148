@@ -33,7 +33,15 @@ namespace xmlIO
                 Console.WriteLine(e.Message);
             }
             //Puts the input child nodes into an XmlNodeList inputsXml
-            XmlNodeList inputsXml = flowinXml.SelectNodes("input")[0].ChildNodes;
+            XmlNodeList inputsXml = null;
+            try
+            {
+                inputsXml = flowinXml.SelectNodes("input")[0].ChildNodes;
+            }
+            catch
+            {
+                // do nothing
+            }
             List<IFlowOperation> result = new List<IFlowOperation>();
 
             foreach (XmlNode inputXml in inputsXml)
@@ -107,9 +115,12 @@ namespace xmlIO
                                 XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
                                 XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
 
-                                if (StringInputIsValid(storeXml[0].InnerText))
+                                if (storeXml.Count != 0)
                                 {
-                                    storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
+                                    if (StringInputIsValid(storeXml[0].InnerText))
+                                    {
+                                        storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
+                                    }
                                 }
                             }
                             //add the store to the results
@@ -198,20 +209,29 @@ namespace xmlIO
         public static Store MkStore(XmlNode storeXml)
         {
             XmlNodeList idXml = storeXml.SelectNodes("id");
-            String id = idXml[0].InnerText;
-
+            String id = null;
+            if (idXml.Count != 0)
+            {
+                id = idXml[0].InnerText;
+            }
 
             XmlNodeList typXml = storeXml.SelectNodes("typ");
             String typ = "";
-            if (StringInputIsValid(typXml[0].InnerText))
+            if (typXml.Count != 0)
             {
-                typ = typXml[0].InnerText;
+                if (StringInputIsValid(typXml[0].InnerText))
+                {
+                    typ = typXml[0].InnerText;
+                }
             }
-
 
             XmlNodeList amountXml = storeXml.SelectNodes("amount");
 
-            int amount = ParseText(amountXml[0].InnerText);
+            int amount = 0;
+            if (amountXml.Count != 0)
+            {
+               amount = ParseText(amountXml[0].InnerText);
+            }
 
             //optional
             XmlNodeList capacityXml = storeXml.SelectNodes("capacity");
@@ -254,16 +274,23 @@ namespace xmlIO
         public static Process MkProcess(XmlNode processXml)
         {
             XmlNodeList idXml = processXml.SelectNodes("id");
-            String id = idXml[0].InnerText;
+            String id = "";
+            if (idXml.Count != 0)
+            {
+                id = idXml[0].InnerText;
+            }
             List<String> typsIn = new List<String>();
             XmlNodeList typsInXml = processXml.SelectNodes("typsIn");
 
             foreach (XmlNode typInXml in typsInXml)
             {
                 //add typInXml to typsIn
-                if (StringInputIsValid(typInXml.FirstChild.InnerText))
+                if (typInXml.FirstChild != null)
                 {
-                    typsIn.Add(typInXml.FirstChild.InnerText);
+                    if (StringInputIsValid(typInXml.FirstChild.InnerText))
+                    {
+                        typsIn.Add(typInXml.FirstChild.InnerText);
+                    }
                 }
             }
 
@@ -273,9 +300,12 @@ namespace xmlIO
             foreach (XmlNode typOutXml in typsOutXml)
             {
                 //add typOutXml to typsOut
-                if (StringInputIsValid(typOutXml.FirstChild.InnerText))
+                if (typOutXml.FirstChild != null)
                 {
-                    typsOut.Add(typOutXml.FirstChild.InnerText);
+                    if (StringInputIsValid(typOutXml.FirstChild.InnerText))
+                    {
+                        typsOut.Add(typOutXml.FirstChild.InnerText);
+                    }
                 }
             }
             return new Process(id, typsIn, typsOut);
@@ -462,6 +492,10 @@ namespace xmlIO
         /// <returns>boolean if input is valid</returns>
         public static bool StringInputIsValid(string input)
         {
+            if (input == null)
+            {
+                return false;
+            }
             char[] inputChar = input.ToCharArray();
 
             if (inputChar.Length > 0)
