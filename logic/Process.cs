@@ -103,7 +103,7 @@ namespace logic
         /// <summary>
         /// List of processes to be sorted from lowest cost to highest cost
         /// </summary>
-        /// <param name="UnsortedProcessList">list of proccesses</param>
+        /// <param name="UnsortedProcessList">list of processes</param>
         public void SortProcesses(List<Process> UnsortedProcessList)
         {
             foreach (Process p in UnsortedProcessList)
@@ -111,7 +111,7 @@ namespace logic
                 TotalProcessCost(p.id);
                 UnsortedProcessList.Add(p);
             }
-            UnsortedProcessList.Sort();
+            UnsortedProcessList.Sort(); // does not sort correctly, todo
         }
 
         /// <summary>
