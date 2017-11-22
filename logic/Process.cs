@@ -98,7 +98,7 @@ namespace logic
         /// <summary>
         /// List of processes that have been sorted from lowest cost to highest cost
         /// </summary>
-        public List<Process> SortedProcess = new List<Process>();
+        public List<Process> SortedProcessList = new List<Process>();
 
         /// <summary>
         /// List of processes to be sorted from lowest cost to highest cost
@@ -109,9 +109,9 @@ namespace logic
             foreach (Process p in UnsortedProcessList)
             {
                 TotalProcessCost(p.id);
-                UnsortedProcessList.Add(p);
+                SortedProcessList.Add(p);
             }
-            UnsortedProcessList.Sort(); // does not sort correctly, todo
+            SortedProcessList.Sort(); // does not sort correctly, todo
         }
 
         /// <summary>
