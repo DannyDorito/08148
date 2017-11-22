@@ -130,7 +130,7 @@ namespace logic
             //removes resources
             foreach (LinkIn link in linksIn)
             {
-                //Prevents negitive amounts from being executed
+                //Prevents negative amounts from being executed
                 if ((link.source.amount -= link.amount) >= 0)
                 {
                     link.source.amount -= link.amount;
@@ -139,7 +139,7 @@ namespace logic
             //adds resources
             foreach (LinkOut link in linksOut)
             {
-                //Prevents negitive amounts from being executed
+                //Prevents negative amounts from being executed
                 if ((link.target.amount += link.amount) <= 0)
                 {
                     link.target.amount += link.amount;
