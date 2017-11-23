@@ -129,24 +129,13 @@ namespace logic
 
         public void Execute()
         {
-            //removes resources from link
+            //removes resources from link, is capacity check necessary? todo
             foreach (LinkIn link in linksIn)
             {
-                if (link.source.capacity >= 1)
+                //Prevents negative amounts from being executed
+                if ((link.source.amount - link.amount) >= 0)
                 {
-                    //Prevents negative amounts from being executed
-                    if ((link.source.amount - link.amount) >= 0)
-                    {
-                        link.source.amount -= link.amount;
-                    }
-                }
-                if (link.source.capacity == -1)
-                {
-                    //Prevents negative amounts from being executed
-                    if ((link.source.amount - link.amount) >= 0)
-                    {
-                        link.source.amount -= link.amount;
-                    }
+                    link.source.amount -= link.amount;
                 }
             }
             //adds resources from link
