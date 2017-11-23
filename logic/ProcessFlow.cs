@@ -26,6 +26,8 @@ namespace logic
 
         public void SetEnabled()
         {
+            List<Process> SortList = new List<Process>();
+
             foreach (Process p in processes)
             {
                 if (p.Enabled())
@@ -36,11 +38,14 @@ namespace logic
                 {
                     enabled.Remove(p);
                 }
+
+                SortList.Add(p);
             }
         }
 
         public void Execute(int k)
         {
+
             SetEnabled();
             for (int i = 0; i < k; i++)
             {
@@ -48,9 +53,9 @@ namespace logic
                 {
                     Process p = enabled[0];
 
-                    List<Process> unsorted = new List<Process>();
-                    unsorted.Add(p);
-                    p.SortProcesses(unsorted);
+                    //List<Process> unsorted = new List<Process>();
+                    //unsorted.Add(p);
+                    //p.SortProcesses(unsorted);
 
                     p.Execute();
                     SetEnabled();

@@ -104,7 +104,7 @@ namespace logic
         /// List of processes to be sorted from lowest cost to highest cost
         /// </summary>
         /// <param name="UnsortedProcessList">list of processes</param>
-        public void SortProcesses(List<Process> UnsortedProcessList)
+        public List<Process> SortProcesses(List<Process> UnsortedProcessList)
         {
             foreach (Process p in UnsortedProcessList)
             {
@@ -112,6 +112,8 @@ namespace logic
                 SortedProcessList.Add(p);
             }
             SortedProcessList.Sort(); // does not sort correctly, todo
+
+            return SortedProcessList;
         }
 
         /// <summary>
@@ -127,20 +129,20 @@ namespace logic
 
         public void Execute()
         {
-            //removes resources
+            //removes resources from link
             foreach (LinkIn link in linksIn)
             {
                 //Prevents negative amounts from being executed
-                if ((link.source.amount -= link.amount) >= 0)
+                if ((link.source.amount - link.amount) >= 0)
                 {
                     link.source.amount -= link.amount;
                 }
             }
-            //adds resources
+            //adds resources from link
             foreach (LinkOut link in linksOut)
             {
                 //Prevents negative amounts from being executed
-                if ((link.target.amount += link.amount) <= 0)
+                if ((link.target.amount + link.amount) >= 0)
                 {
                     link.target.amount += link.amount;
                 }
