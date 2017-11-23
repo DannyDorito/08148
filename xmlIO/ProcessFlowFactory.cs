@@ -44,102 +44,106 @@ namespace xmlIO
             }
             List<IFlowOperation> result = new List<IFlowOperation>();
 
-            foreach (XmlNode inputXml in inputsXml)
+            if (inputsXml != null)
             {
-                switch (inputXml.Name)
+                foreach (XmlNode inputXml in inputsXml)
                 {
-                    //if the inputXml is flow
-                    case "flow":
-                        {
-                            ProcessFlow processFlow = MkProcessFlow(inputXml);
-                            //add the process to the results
-
-                            //if there is no errors in inputXml
-                            if (processFlow != null)
+                    switch (inputXml.Name)
+                    {
+                        //if the inputXml is flow
+                        case "flow":
                             {
-                                result.Add(processFlow);
-                            }
-                            break;
-                        }
-                    //if the inputXml is execute
-                    case "execute":
-                        {
-                            try
-                            {
-                                int exeInt = ParseText(inputXml.InnerText);
+                                ProcessFlow processFlow = MkProcessFlow(inputXml);
+                                //add the process to the results
 
-                                if (exeInt != 0)
+                                //if there is no errors in inputXml
+                                if (processFlow != null)
                                 {
-                                    //add the execution to the results
-                                    result.Add(new OpExecute(ParseText(inputXml.InnerText)));
+                                    result.Add(processFlow);
                                 }
+                                break;
                             }
-                            catch (Exception)
+                        //if the inputXml is execute
+                        case "execute":
                             {
-                                // do nothing
-                            }
-                            break;
-                        }
-                    //if the inputXml is query
-                    case "query":
-                        {
-                            try
-                            {
-                                XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
-                                List<String> stores = new List<String>();
-                                foreach (XmlNode storeXml in storesXml)
+                                try
                                 {
-                                    if (StringInputIsValid(storeXml.InnerText))
+                                    int exeInt = ParseText(inputXml.InnerText);
+
+                                    if (exeInt != 0)
                                     {
-                                        //add the store to stores
-                                        stores.Add(storeXml.InnerText);
+                                        //add the execution to the results
+                                        result.Add(new OpExecute(ParseText(inputXml.InnerText)));
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    // do nothing
+                                }
+                                break;
+                            }
+                        //if the inputXml is query
+                        case "query":
+                            {
+                                try
+                                {
+                                    XmlNodeList storesXml = inputXml.SelectNodes("stores/store");
+                                    List<String> stores = new List<String>();
+                                    foreach (XmlNode storeXml in storesXml)
+                                    {
+                                        if (StringInputIsValid(storeXml.InnerText))
+                                        {
+                                            //add the store to stores
+                                            stores.Add(storeXml.InnerText);
+                                        }
+                                    }
+                                    //add the store to the results
+                                    result.Add(new OpQuery(stores));
+                                }
+                                catch (Exception)
+                                {
+                                    // do nothing
+                                }
+                                break;
+                            }
+                        //if the inputXml is load
+                        case "load":
+                            {
+                                XmlNodeList storeAmountsXml = inputXml.SelectNodes("storeAmount");
+                                List<StoreIDAmount> storeAmounts = new List<StoreIDAmount>();
+
+                                foreach (XmlNode storeAmountXml in storeAmountsXml)
+                                {
+                                    XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
+                                    XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
+
+                                    if (storeXml.Count != 0)
+                                    {
+                                        if (StringInputIsValid(storeXml[0].InnerText))
+                                        {
+                                            storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
+                                        }
                                     }
                                 }
                                 //add the store to the results
-                                result.Add(new OpQuery(stores));
+                                result.Add(new OpLoad(storeAmounts));
+                                break;
                             }
-                            catch (Exception)
+                        //if the inputXml is #comment
+                        case "#comment":
                             {
-                                // do nothing
+                                break;
                             }
-                            break;
-                        }
-                    //if the inputXml is load
-                    case "load":
-                        {
-                            XmlNodeList storeAmountsXml = inputXml.SelectNodes("storeAmount");
-                            List<StoreIDAmount> storeAmounts = new List<StoreIDAmount>();
-
-                            foreach (XmlNode storeAmountXml in storeAmountsXml)
+                        //else
+                        default:
                             {
-                                XmlNodeList storeXml = storeAmountXml.SelectNodes("store");
-                                XmlNodeList amountXml = storeAmountXml.SelectNodes("amount");
-
-                                if (storeXml.Count != 0)
-                                {
-                                    if (StringInputIsValid(storeXml[0].InnerText))
-                                    {
-                                        storeAmounts.Add(new StoreIDAmount(storeXml[0].InnerText, ParseText(amountXml[0].InnerText)));
-                                    }
-                                }
+                                throw new Exception("Unknown XML: " + inputXml.Name);
                             }
-                            //add the store to the results
-                            result.Add(new OpLoad(storeAmounts));
-                            break;
-                        }
-                    //if the inputXml is #comment
-                    case "#comment":
-                        {
-                            break;
-                        }
-                    //else
-                    default:
-                        {
-                            throw new Exception("Unknown XML: " + inputXml.Name);
-                        }
+                    }
                 }
+                return result;
             }
-            return result;
+            return null;
         }
 
         /// <summary>
@@ -230,7 +234,7 @@ namespace xmlIO
             int amount = 0;
             if (amountXml.Count != 0)
             {
-               amount = ParseText(amountXml[0].InnerText);
+                amount = ParseText(amountXml[0].InnerText);
             }
 
             //optional
