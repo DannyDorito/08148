@@ -132,17 +132,28 @@ namespace logic
             //removes resources from link
             foreach (LinkIn link in linksIn)
             {
-                //Prevents negative amounts from being executed
-                if ((link.source.amount - link.amount) >= 0)
+                if (link.source.capacity >= 1)
                 {
-                    link.source.amount -= link.amount;
+                    //Prevents negative amounts from being executed
+                    if ((link.source.amount - link.amount) >= 0)
+                    {
+                        link.source.amount -= link.amount;
+                    }
+                }
+                if (link.source.capacity == -1)
+                {
+                    //Prevents negative amounts from being executed
+                    if ((link.source.amount - link.amount) >= 0)
+                    {
+                        link.source.amount -= link.amount;
+                    }
                 }
             }
             //adds resources from link
             foreach (LinkOut link in linksOut)
             {
                 //Prevents execution if it goes over capacity
-                if (link.target.capacity >= 0)
+                if (link.target.capacity >= 1)
                 {
                     //Prevents execution if the amount is too large
                     if ((link.target.amount + link.amount) > link.target.capacity)
@@ -150,7 +161,7 @@ namespace logic
                         link.target.amount += link.amount;
                     }
                 }
-                else
+                if (link.target.capacity == -1)
                 {
                     //Prevents execution if the amount is too large
                     if ((link.target.amount + link.amount) >= 0)
