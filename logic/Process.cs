@@ -141,10 +141,22 @@ namespace logic
             //adds resources from link
             foreach (LinkOut link in linksOut)
             {
-                //Prevents negative amounts from being executed
-                if ((link.target.amount + link.amount) >= 0)
+                //Prevents execution if it goes over capacity
+                if (link.target.capacity >= 0)
                 {
-                    link.target.amount += link.amount;
+                    //Prevents execution if the amount is too large
+                    if ((link.target.amount + link.amount) > link.target.capacity)
+                    {
+                        link.target.amount += link.amount;
+                    }
+                }
+                else
+                {
+                    //Prevents execution if the amount is too large
+                    if ((link.target.amount + link.amount) >= 0)
+                    {
+                        link.target.amount += link.amount;
+                    }
                 }
             }
         }
