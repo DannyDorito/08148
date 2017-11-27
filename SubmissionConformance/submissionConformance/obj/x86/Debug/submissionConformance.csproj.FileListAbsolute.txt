@@ -1,0 +1,13 @@
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\Ionic.Zip.dll
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\submissionConformance.exe
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\submissionConformance.pdb
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\submissionConformance.exe
+F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\submissionConformance.pdb
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\bin\Debug\submissionConformance.exe
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\bin\Debug\submissionConformance.pdb
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\bin\Debug\Ionic.Zip.dll
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\obj\x86\Debug\submissionConformance.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\obj\x86\Debug\submissionConformance.csproj.CoreCompileInputs.cache
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\obj\x86\Debug\submissionConformance.exe
+C:\Users\John\Desktop\SubmissionConformance\submissionConformance\obj\x86\Debug\submissionConformance.pdb

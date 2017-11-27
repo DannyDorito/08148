@@ -1,0 +1,5 @@
+C:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\assessmentHarness.exe
+C:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\assessmentHarness.pdb
+C:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\assessmentHarness.exe
+C:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\assessmentHarness.pdb
