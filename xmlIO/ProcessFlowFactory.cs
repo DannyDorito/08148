@@ -54,11 +54,11 @@ namespace xmlIO
                         case "flow":
                             {
                                 ProcessFlow processFlow = MkProcessFlow(inputXml);
-                                //add the process to the results
 
                                 //if there is no errors in inputXml
                                 if (processFlow != null)
                                 {
+                                    //add the process to the results
                                     result.Add(processFlow);
                                 }
                                 break;
