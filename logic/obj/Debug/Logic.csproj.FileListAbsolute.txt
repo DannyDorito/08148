@@ -35,3 +35,9 @@ G:\08148-master\logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
 G:\08148-master\logic\obj\Debug\logic.dll
 G:\08148-master\logic\obj\Debug\logic.pdb
 C:\Users\John\Downloads\08148\logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\08148-Software-Engineering-17-18-master\logic\bin\Debug\logic.dll
+C:\08148-Software-Engineering-17-18-master\logic\bin\Debug\logic.pdb
+C:\08148-Software-Engineering-17-18-master\logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\08148-Software-Engineering-17-18-master\logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+C:\08148-Software-Engineering-17-18-master\logic\obj\Debug\logic.dll
+C:\08148-Software-Engineering-17-18-master\logic\obj\Debug\logic.pdb

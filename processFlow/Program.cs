@@ -13,8 +13,8 @@ namespace processFlow
             {  // do not remove this try-catch statement, do not add any code outside try-block
                 List<IFlowOperation> inputs = null;
                 //Gets the load arguments, calls the load input with arguments
-                inputs = ProcessFlowFactory.LoadInput("flow.xml");  // reinstate this line before submission also uncomment all try catch statements
-                //inputs = ProcessFlowFactory.LoadInput(args[0]);       // remove this line before submission
+                inputs = ProcessFlowFactory.LoadInput("flow.xml"); // reinstate this line before submission also uncomment all try catch statements
+                //inputs = ProcessFlowFactory.LoadInput(args[0]); // remove this line before submission
                 ProcessFlow flow = null;
                 if (inputs != null)
                 {
@@ -30,14 +30,14 @@ namespace processFlow
                         {
                             Operation op = (Operation)input;
                             Object result = null;
-                            //try
-                            //{
-                            result = op.Do(flow);
-                            //}
-                            //catch (Exception)
-                            //{
-                            //    //do nothing
-                            //}
+                            try
+                            {
+                                result = op.Do(flow);
+                            }
+                            catch (Exception)
+                            {
+                                //do nothing
+                            }
                             if (result != null)
                             {
                                 ProcessFlowFactory.Output(op.Output(result));
@@ -51,8 +51,8 @@ namespace processFlow
                 // do not modify the code in this catch block except to comment two lines at end of block
                 Console.WriteLine("Unhandled exception: " + e.Message);
                 // comment following two lines before final build and submission
-                Console.WriteLine("Press any key to exit program.");
-                Console.ReadKey();
+                //Console.WriteLine("Press any key to exit program.");
+                //Console.ReadKey();
             }
         }
     }

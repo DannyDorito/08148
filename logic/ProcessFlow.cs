@@ -53,10 +53,6 @@ namespace logic
                 {
                     Process p = enabled[0];
 
-                    //List<Process> unsorted = new List<Process>();
-                    //unsorted.Add(p);
-                    //p.SortProcesses(unsorted);
-
                     p.Execute();
                     SetEnabled();
                 }

@@ -36,6 +36,10 @@ namespace logic
                 {
                     return false;
                 }
+                if (link.source.amount <= 0)
+                {
+                    return false;
+                }
             }
             foreach (LinkOut link in linksOut)
             {

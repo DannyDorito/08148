@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input>
+  <query>
+    <stores>
+      <store>s1</store>
+      <store>s2</store>
+    </stores>
+  </query>
+</input>

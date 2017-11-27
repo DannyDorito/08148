@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input>
+  <load>
+    <storeAmount>
+      <store>1</store>
+      <amount>2</amount>
+    </storeAmount>
+    <storeAmount>
+      <store>s2</store>
+      <amount>1</amount>
+    </storeAmount>
+  </load>
+</input>

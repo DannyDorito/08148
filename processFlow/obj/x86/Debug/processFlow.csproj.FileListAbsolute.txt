@@ -76,3 +76,13 @@ C:\08148-master\processFlow\obj\x86\Debug\processFlow.csprojResolveAssemblyRefer
 C:\08148-master\processFlow\obj\x86\Debug\processFlow.csproj.CoreCompileInputs.cache
 C:\08148-master\processFlow\obj\x86\Debug\processFlow.exe
 C:\08148-master\processFlow\obj\x86\Debug\processFlow.pdb
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\processFlow.exe
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\processFlow.pdb
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\logic.dll
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\xmlIO.dll
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\logic.pdb
+C:\08148-Software-Engineering-17-18-master\processFlow\bin\Debug\xmlIO.pdb
+C:\08148-Software-Engineering-17-18-master\processFlow\obj\x86\Debug\processFlow.csprojResolveAssemblyReference.cache
+C:\08148-Software-Engineering-17-18-master\processFlow\obj\x86\Debug\processFlow.csproj.CoreCompileInputs.cache
+C:\08148-Software-Engineering-17-18-master\processFlow\obj\x86\Debug\processFlow.exe
+C:\08148-Software-Engineering-17-18-master\processFlow\obj\x86\Debug\processFlow.pdb

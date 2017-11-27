@@ -16,7 +16,6 @@ namespace processFlowTest
         /// Test checks if the program's output is correct
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void BasicOutputTest()
         {
             Program.Main(new string[] { "flow1.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
@@ -33,44 +32,140 @@ namespace processFlowTest
         /// Test checks if the program can handle errors in the Flow portion of the input XML doc
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectFlowInputTest()
         {
-            Program.Main(new string[] { "incorrectflow.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
-            //todo
+            bool requred = false;
+            bool exThrown = false;
+
+            try
+            {
+                Program.Main(new string[] { "incorrectflow.xml" }); // this file resides in processFlow\processFlowTest\bin\Debug
+            }
+            catch
+            {
+                exThrown = true;
+            }
+
+            if (exThrown)
+            {
+                throw new AssertFailedException("An unhandelled exception was thrown {0}, this test has failed.");
+            }
+            else
+            {
+                Assert.AreEqual(requred, exThrown);
+            }
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the Load portion of the input XML doc
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorectLoadInputTest()
         {
-            Program.Main(new string[] { "incorrectload.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
-            //todo
+            bool requred = false;
+            bool exThrown = false;
+
+            try
+            {
+                Program.Main(new string[] { "incorrectload.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            }
+            catch
+            {
+                exThrown = true;
+            }
+
+            if (exThrown)
+            {
+                throw new AssertFailedException("An unhandelled exception was thrown {0}, this test has failed.");
+            }
+            else
+            {
+                Assert.AreEqual(requred, exThrown);
+            }
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the Input portion of the input XML doc
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectExecuteInputTest()
         {
-            Program.Main(new string[] { "incorrectexecute.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
-            //todo
+            bool requred = false;
+            bool exThrown = false;
+
+            try
+            {
+                Program.Main(new string[] { "incorrectexecute.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            }
+            catch
+            {
+                exThrown = true;
+            }
+
+            if (exThrown)
+            {
+                throw new AssertFailedException("An unhandelled exception was thrown {0}, this test has failed.");
+            }
+            else
+            {
+                Assert.AreEqual(requred, exThrown);
+            }
         }
 
         /// <summary>
         /// Test checks if the program can handle errors in the Query portion of the input XML doc
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "name of exception")] //set name of exception
         public void IncorrectQueryInputTest()
         {
-            Program.Main(new string[] { "incorrectquery.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
-            //todo
+            bool requred = false;
+            bool exThrown = false;
+
+            try
+            {
+                Program.Main(new string[] { "incorrectquery.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug
+            }
+            catch
+            {
+                exThrown = true;
+            }
+
+            if (exThrown)
+            {
+                throw new AssertFailedException("An unhandelled exception was thrown {0}, this test has failed.");
+            }
+            else
+            {
+                Assert.AreEqual(requred, exThrown);
+            }
+        }
+
+        /// <summary>
+        /// Test checks if the program can handle errors loading an incorrect XML doc
+        /// </summary>
+        [TestMethod]
+        public void IncorrectXMLInputTest()
+        {
+            bool requred = false;
+            bool exThrown = false;
+
+            try
+            {
+                Program.Main(new string[] { "incorrectxml.xml" });  // this file resides in processFlow\processFlowTest\bin\Debug            
+            }
+            catch
+            {
+                exThrown = true;
+            }
+
+            if (exThrown)
+            {
+                throw new AssertFailedException("An unhandelled exception was thrown {0}, this test has failed.");
+            }
+            else
+            {
+                Assert.AreEqual(requred, exThrown);
+            }
         }
     }
 }
