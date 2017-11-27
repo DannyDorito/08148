@@ -1,6 +1,0 @@
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\Ionic.Zip.dll
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\ResolveAssemblyReference.cache
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\submissionConformance.exe
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\bin\Debug\submissionConformance.pdb
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\submissionConformance.exe
-F:\dotnet\vsproject\assessmentHarnessStudent\assessmentHarness\obj\x86\Debug\submissionConformance.pdb
